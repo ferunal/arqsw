@@ -5,9 +5,11 @@
  */
 package com.uniminuto.lchacon.estampate.web.inicio;
 
+import com.uniminuto.lchacon.estampate.web.base.AplicacionJSFBean;
 import java.io.Serializable;
 import javax.enterprise.context.RequestScoped;
 import javax.enterprise.context.SessionScoped;
+import javax.inject.Inject;
 import javax.inject.Named;
 
 /**
@@ -21,6 +23,8 @@ public class InicioJSFBean implements Serializable{
     private String usuario;
     private String clave;
 
+    @Inject
+    AplicacionJSFBean ajsfb;
     public String getUsuario() {
         return usuario;
     }

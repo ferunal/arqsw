@@ -8,6 +8,10 @@
         <param-name>org.icefaces.ace.theme</param-name>
         <param-value>cupertino</param-value>
     </context-param>
+    <listener>
+        <description>ServletContextListener, HttpSessionListener</description>
+        <listener-class>com.uniminuto.lchacon.estampate.web.base.EstampateSrvListener</listener-class>
+    </listener>
     <servlet>
         <servlet-name>Faces Servlet</servlet-name>
         <servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
