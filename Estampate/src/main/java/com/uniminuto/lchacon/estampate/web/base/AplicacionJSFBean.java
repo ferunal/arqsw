@@ -25,7 +25,7 @@ public class AplicacionJSFBean {
 
     public AplicacionJSFBean() {
 Logger.getLogger(AplicacionJSFBean.class.getName()).log(Level.INFO, null, "Contexto inicializado....");
-        Logger.getLogger(AplicacionJSFBean.class.getName()).log(Level.INFO,  "Creando carpete de almacenamiento de imagenes si no existe....");
+        Logger.getLogger(AplicacionJSFBean.class.getName()).log(Level.INFO,  "Creando carpeta de almacenamiento de imagenes si no existe....");
         Path carpetaEstampate = Paths.get(System.getProperty("user.home"), "estampate");
         if (!Files.exists(carpetaEstampate)) {
             try {

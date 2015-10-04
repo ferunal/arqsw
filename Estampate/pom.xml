@@ -15,7 +15,8 @@
     </properties>
     
     <dependencies>
-         <dependency>
+      
+        <dependency>
             <groupId>javax</groupId>
             <artifactId>javaee-api</artifactId>
             <version>7.0</version>
@@ -29,27 +30,32 @@
         <dependency>
             <groupId>org.icefaces</groupId>
             <artifactId>icefaces</artifactId>
-            <version>4.0.0</version>            
+            <version>4.0.0</version>       
+            <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>org.icefaces</groupId>
             <artifactId>icefaces-ace</artifactId>
-            <version>4.0.0</version>             
+            <version>4.0.0</version>     
+            <scope>provided</scope>       
         </dependency>
         <dependency>
             <groupId>org.icefaces</groupId>
             <artifactId>icefaces-mobi</artifactId>
             <version>4.0.0</version>
+            <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>org.icefaces.ace-themes</groupId>
             <artifactId>ace-cupertino</artifactId>
             <version>4.0.0</version>
+            <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>org.icepush</groupId>
             <artifactId>icepush</artifactId>
             <version>4.0.0</version>
+            <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>joda-time</groupId>
@@ -61,7 +67,23 @@
             <artifactId>jep</artifactId>
             <version>2.4.2</version>
         </dependency>
+        <!--
+        <dependency>
+            <groupId>com.sun.faces</groupId>
+            <artifactId>jsf-impl</artifactId>
+            <version>2.2.7</version>
+            
+        </dependency>
+        <dependency>
+            <groupId>com.sun.faces</groupId>
+            <artifactId>jsf-api</artifactId>
+            <version>2.2.7</version>      
+                 
+          </dependency>
+        -->
+        
     </dependencies>
+       
 
     <build>
         <plugins>

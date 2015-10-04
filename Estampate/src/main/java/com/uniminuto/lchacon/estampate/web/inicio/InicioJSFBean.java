@@ -6,6 +6,7 @@
 package com.uniminuto.lchacon.estampate.web.inicio;
 
 import com.uniminuto.lchacon.estampate.web.base.AplicacionJSFBean;
+import com.uniminuto.lchacon.estampate.web.base.BaseJSFBean;
 import java.io.Serializable;
 import javax.enterprise.context.RequestScoped;
 import javax.enterprise.context.SessionScoped;
@@ -18,7 +19,7 @@ import javax.inject.Named;
  */
 @SessionScoped
 @Named
-public class InicioJSFBean implements Serializable{
+public class InicioJSFBean extends BaseJSFBean implements Serializable{
 
     private String usuario;
     private String clave;
@@ -44,5 +45,25 @@ public class InicioJSFBean implements Serializable{
     public void validarUsuario() {
         System.out.println(usuario);
         System.out.println(clave);
+    }
+
+    @Override
+    public void init() {
+       
+    }
+
+    @Override
+    public void limpiarVariables() {
+       
+    }
+
+    @Override
+    public void navegacionLateral_ActionEvent(Integer numPanel) {
+       
+    }
+
+    @Override
+    public boolean validarFormulario() {
+        return true;
     }
 }
