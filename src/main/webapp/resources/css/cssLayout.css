@@ -1,10 +1,13 @@
 
 #top {
-    position: relative;
-    background-color: #036fab;
-    color: white;
-    padding: 5px;
-    margin: 0px 0px 10px 0px;
+    position: fixed;
+    width: 100%;
+    border: 0px;
+    left: 0px;
+    height: 80px; 
+    z-index: 10;
+    background-color: #bed4eb;
+    top: 0px;
 }
 
 #bottom {
@@ -15,10 +18,16 @@
 }
 
 #left {
-    float: left;
-    background-color: #ece3a5;
-    padding: 5px;
-    width: 150px;
+   float: left;
+    padding: 2px;
+    left: 2px;
+    width: 164px;
+    top: 80px;
+    position: fixed;
+    height: 100%;
+    z-index: 2;
+    
+    background-color: #bed4eb;
 }
 
 #right {
@@ -35,9 +44,13 @@
 }
 
 .left_content {
-    background-color: #dddddd;
-    padding: 5px;
-    margin-left: 170px;
+     margin: 5px 5px;
+    height: 1500px;
+    margin-left: 165px;
+    margin-top: 80px;
+    /*width: 100%;*/
+    z-index: -1;
+    padding: 3px;
 }
 
 .right_content {
