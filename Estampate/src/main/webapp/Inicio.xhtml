@@ -26,7 +26,7 @@
                     <ace:textEntry value="#{inicioJSFBean.usuario}"/>
                     <h:outputText value="Clave"/>
                     <ace:textEntry value="#{inicioJSFBean.clave}" secret="true"/>
-                    <ace:pushButton value="Enviar" actionListener="#{inicioJSFBean.validarUsuario}"/>
+                    <ace:pushButton value="Enviar" actionListener="#{inicioJSFBean.validarUsuario(ae)}"/>
                 </h:panelGrid>
             </ui:define>
 

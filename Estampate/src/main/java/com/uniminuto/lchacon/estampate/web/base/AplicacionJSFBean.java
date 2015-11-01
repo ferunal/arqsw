@@ -24,22 +24,22 @@ import javax.inject.Named;
 public class AplicacionJSFBean {
 
     public AplicacionJSFBean() {
-Logger.getLogger(AplicacionJSFBean.class.getName()).log(Level.INFO, null, "Contexto inicializado....");
-        Logger.getLogger(AplicacionJSFBean.class.getName()).log(Level.INFO,  "Creando carpeta de almacenamiento de imagenes si no existe....");
+        Logger.getLogger(AplicacionJSFBean.class.getName()).log(Level.INFO, null, "Contexto inicializado....");
+        Logger.getLogger(AplicacionJSFBean.class.getName()).log(Level.INFO, "Creando carpeta de almacenamiento de imagenes si no existe....");
         Path carpetaEstampate = Paths.get(System.getProperty("user.home"), "estampate");
         if (!Files.exists(carpetaEstampate)) {
             try {
                 Files.createDirectory(carpetaEstampate);
-                Logger.getLogger(AplicacionJSFBean.class.getName()).log(Level.INFO,  "Carpeta estámpate creada....");
+                Logger.getLogger(AplicacionJSFBean.class.getName()).log(Level.INFO, "Carpeta estámpate creada....");
             } catch (IOException e) {
-                Logger.getLogger(AplicacionJSFBean.class.getName()).log(Level.SEVERE,  "Error creando la carpeta inicial..");
+                Logger.getLogger(AplicacionJSFBean.class.getName()).log(Level.SEVERE, "Error creando la carpeta inicial..");
             }
         }
     }
 
     @PostConstruct
     public void init() {
-        
+
     }
 
 }

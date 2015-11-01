@@ -8,6 +8,7 @@
     <packaging>pom</packaging>
     <modules>
         <module>Estampate</module>
+        <module>EstampateEM</module>
     </modules>
     <properties>      
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

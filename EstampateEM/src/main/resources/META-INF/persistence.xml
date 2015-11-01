@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+  <persistence-unit name="estampatePU" transaction-type="JTA">
+    <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+     <jta-data-source>jdbcEstampate</jta-data-source>
+    <class>com.unniminuto.lchacon.estampateem.modelo.VntFactura</class>
+    <class>com.unniminuto.lchacon.estampateem.modelo.PrdCamiseta</class>
+    <class>com.unniminuto.lchacon.estampateem.modelo.RefTalla</class>
+    <class>com.unniminuto.lchacon.estampateem.modelo.PrdImagen</class>
+    <class>com.unniminuto.lchacon.estampateem.modelo.PrdImgxest</class>
+    <class>com.unniminuto.lchacon.estampateem.modelo.VntEstxvn</class>
+    <class>com.unniminuto.lchacon.estampateem.modelo.SysModulos</class>
+    <class>com.unniminuto.lchacon.estampateem.modelo.SysRolxfrn</class>
+    <class>com.unniminuto.lchacon.estampateem.modelo.SysSubmodxrol</class>
+    <class>com.unniminuto.lchacon.estampateem.modelo.SysSubmodulo</class>
+    <class>com.unniminuto.lchacon.estampateem.modelo.RefMaterial</class>
+    <class>com.unniminuto.lchacon.estampateem.modelo.PrdEstampa</class>
+    <class>com.unniminuto.lchacon.estampateem.modelo.SysFuncionario</class>
+    <class>com.unniminuto.lchacon.estampateem.modelo.RefEstilo</class>
+    <class>com.unniminuto.lchacon.estampateem.modelo.SysMenuprin</class>
+    <class>com.unniminuto.lchacon.estampateem.modelo.SysRol</class>
+    <class>com.unniminuto.lchacon.estampateem.modelo.VntDetfactura</class>
+    <class>com.unniminuto.lchacon.estampateem.modelo.SysSubmodxfrn</class>
+    <class>com.unniminuto.lchacon.estampateem.modelo.RefColor</class>
+    <shared-cache-mode>ENABLE_SELECTIVE</shared-cache-mode>
+    <properties/>
+  </persistence-unit>
+</persistence>
