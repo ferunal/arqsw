@@ -15,6 +15,8 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 
@@ -35,10 +37,13 @@ public class SysRol implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)
+    @NotNull
     @Column(name = "rol_id")
     private Integer rolId;
+    @Size(max = 250)
     @Column(name = "rol_nombre")
     private String rolNombre;
+    @Size(max = 2147483647)
     @Column(name = "rol_desc")
     private String rolDesc;
     @Column(name = "rol_estado")

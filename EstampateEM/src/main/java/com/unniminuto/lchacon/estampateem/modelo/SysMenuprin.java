@@ -15,6 +15,8 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 
@@ -37,10 +39,13 @@ public class SysMenuprin implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)
+    @NotNull
     @Column(name = "men_id")
     private Integer menId;
+    @Size(max = 250)
     @Column(name = "men_nombre")
     private String menNombre;
+    @Size(max = 2147483647)
     @Column(name = "men_desc")
     private String menDesc;
     @Column(name = "men_est")

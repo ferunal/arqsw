@@ -15,6 +15,8 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 
@@ -35,21 +37,26 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "SysFuncionario.findByFrnEstado", query = "SELECT s FROM SysFuncionario s WHERE s.frnEstado = :frnEstado"),
     @NamedQuery(name = "SysFuncionario.findByIndversion", query = "SELECT s FROM SysFuncionario s WHERE s.indversion = :indversion"),
     @NamedQuery(name = "SysFuncionario.findByRolId", query = "SELECT s FROM SysFuncionario s WHERE s.rolId = :rolId"),
-    @NamedQuery(name = "SysFuncionario.validarUsr", query = "SELECT u FROM SysFuncionario u WHERE u.frnUsuario = :frnUsuario AND u.frnClave = :frnClave ")
+ @NamedQuery(name = "SysFuncionario.validarUsr", query = "SELECT u FROM SysFuncionario u WHERE u.frnUsuario = :frnUsuario AND u.frnClave = :frnClave ")
 })
 public class SysFuncionario implements Serializable {
-
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 50)
     @Column(name = "frn_id")
     private String frnId;
+    @Size(max = 250)
     @Column(name = "frn_nombre")
     private String frnNombre;
+    @Size(max = 250)
     @Column(name = "frn_apellido")
     private String frnApellido;
+    @Size(max = 100)
     @Column(name = "frn_usuario")
     private String frnUsuario;
+    @Size(max = 2000)
     @Column(name = "frn_clave")
     private String frnClave;
     @Column(name = "frn_estado")
@@ -60,6 +67,8 @@ public class SysFuncionario implements Serializable {
     private Integer rolId;
     @OneToMany(mappedBy = "frnId")
     private List<SysSubmodxfrn> sysSubmodxfrnList;
+    @OneToMany(mappedBy = "frnId")
+    private List<SysDetallefnr> sysDetallefnrList;
     @OneToMany(mappedBy = "frnId")
     private List<SysRolxfrn> sysRolxfrnList;
 
@@ -144,6 +153,15 @@ public class SysFuncionario implements Serializable {
     }
 
     @XmlTransient
+    public List<SysDetallefnr> getSysDetallefnrList() {
+        return sysDetallefnrList;
+    }
+
+    public void setSysDetallefnrList(List<SysDetallefnr> sysDetallefnrList) {
+        this.sysDetallefnrList = sysDetallefnrList;
+    }
+
+    @XmlTransient
     public List<SysRolxfrn> getSysRolxfrnList() {
         return sysRolxfrnList;
     }
@@ -176,5 +194,5 @@ public class SysFuncionario implements Serializable {
     public String toString() {
         return "com.unniminuto.lchacon.estampateem.modelo.SysFuncionario[ frnId=" + frnId + " ]";
     }
-
+    
 }

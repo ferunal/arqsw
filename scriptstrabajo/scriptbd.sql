@@ -81,6 +81,8 @@ ALTER TABLE sys_funcionario
   OWNER TO auditoria;
 
 
+
+
 -- Table: sys_rolxfrn
 
 -- DROP TABLE sys_rolxfrn;
@@ -322,8 +324,52 @@ ALTER TABLE vnt_estxvn
 ALTER TABLE vnt_estxvn
   ADD FOREIGN KEY (etm_id) REFERENCES prd_estampa (etm_id) ON UPDATE RESTRICT ON DELETE RESTRICT;
 
+create table sys_mediopago(
+mdp_id integer primary key,
+mdp_nombre varchar(100),
+mdp_desc text,
+mdp_est boolean default true
+);
+
+create table sys_detallefnr(
+detf_id bigserial primary key,
+detf_direccion text,
+detf_direccion1 text,
+detf_telefono varchar(50),
+detf_pais varchar(100),
+detf_ciudad varchar(100),
+frn_id character varying(50),
+mdp_id integer,
+detf_mdpnumero bigint,
+detf_mdpdigitver integer,
+detf_est boolean default true,
+indversion integer default 1
+
+)  
+
+ALTER TABLE sys_detallefnr
+  ADD FOREIGN KEY (frn_id) REFERENCES sys_funcionario (frn_id) ON UPDATE RESTRICT ON DELETE RESTRICT;
+ALTER TABLE sys_detallefnr
+  ADD FOREIGN KEY (mdp_id) REFERENCES sys_mediopago (mdp_id) ON UPDATE RESTRICT ON DELETE RESTRICT;
+
   
 
+create table vnt_mdpxfact(
+mdxf_id bigserial,
+fac_id bigint,
+detf_id bigint,
+mdxf_valor numeric(16,2),
+mdxf_est boolean default true,
+indversion integer default 1
+);
+
+
+ALTER TABLE vnt_mdpxfact
+  ADD PRIMARY KEY (mdxf_id);
+ALTER TABLE vnt_mdpxfact
+  ADD FOREIGN KEY (detf_id) REFERENCES sys_detallefnr (detf_id) ON UPDATE RESTRICT ON DELETE RESTRICT;
+ALTER TABLE vnt_mdpxfact
+  ADD FOREIGN KEY (fac_id) REFERENCES vnt_factura (fac_id) ON UPDATE RESTRICT ON DELETE RESTRICT;
 
 
 

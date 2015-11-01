@@ -17,6 +17,7 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 
@@ -42,10 +43,13 @@ public class PrdImagen implements Serializable {
     @Basic(optional = false)
     @Column(name = "img_id")
     private Long imgId;
+    @Size(max = 100)
     @Column(name = "img_nombre")
     private String imgNombre;
+    @Size(max = 2147483647)
     @Column(name = "img_desc")
     private String imgDesc;
+    @Size(max = 800)
     @Column(name = "img_ruta")
     private String imgRuta;
     @Column(name = "img_est")

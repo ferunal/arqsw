@@ -20,6 +20,7 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 
@@ -45,8 +46,10 @@ public class PrdEstampa implements Serializable {
     @Basic(optional = false)
     @Column(name = "etm_id")
     private Long etmId;
+    @Size(max = 100)
     @Column(name = "etm_nombre")
     private String etmNombre;
+    @Size(max = 2147483647)
     @Column(name = "etm_desc")
     private String etmDesc;
     // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation

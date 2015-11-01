@@ -15,6 +15,8 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 
@@ -36,10 +38,13 @@ public class RefColor implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)
+    @NotNull
     @Column(name = "clr_id")
     private Integer clrId;
+    @Size(max = 100)
     @Column(name = "clr_nombre")
     private String clrNombre;
+    @Size(max = 2147483647)
     @Column(name = "clr_desc")
     private String clrDesc;
     @Column(name = "clr_est")

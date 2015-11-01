@@ -68,6 +68,8 @@ public class VntFactura implements Serializable {
     private Integer indversion;
     @OneToMany(mappedBy = "facId")
     private List<VntDetfactura> vntDetfacturaList;
+    @OneToMany(mappedBy = "facId")
+    private List<VntMdpxfact> vntMdpxfactList;
     @JoinColumn(name = "rlfr_id", referencedColumnName = "rlfr_id")
     @ManyToOne
     private SysRolxfrn rlfrId;
@@ -150,6 +152,15 @@ public class VntFactura implements Serializable {
 
     public void setVntDetfacturaList(List<VntDetfactura> vntDetfacturaList) {
         this.vntDetfacturaList = vntDetfacturaList;
+    }
+
+    @XmlTransient
+    public List<VntMdpxfact> getVntMdpxfactList() {
+        return vntMdpxfactList;
+    }
+
+    public void setVntMdpxfactList(List<VntMdpxfact> vntMdpxfactList) {
+        this.vntMdpxfactList = vntMdpxfactList;
     }
 
     public SysRolxfrn getRlfrId() {
