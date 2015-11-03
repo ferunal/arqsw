@@ -5,20 +5,30 @@
  */
 package com.uniminuto.lchacon.estampate.web.base;
 
+import com.uniminuto.lchacon.estampate.ejb.base.ManejoReferenciasSLBean;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.security.Provider;
 import java.security.Security;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.crypto.Cipher;
 import javax.crypto.CipherOutputStream;
 import javax.crypto.KeyGenerator;
 import javax.crypto.SecretKey;
 import javax.crypto.spec.SecretKeySpec;
+import javax.ejb.EJB;
 import javax.el.ELContext;
+import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
+import javax.faces.event.ActionEvent;
 import javax.faces.model.SelectItem;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -27,7 +37,6 @@ import javax.faces.model.SelectItem;
 public abstract class BaseJSFBean {
 
     //<editor-fold defaultstate="collapsed" desc="Variables comunes">
-
     protected SelectItem itemSeleccioneStr = new SelectItem("-1", "Seleccione>>");
     protected SelectItem itemSeleccioneInt = new SelectItem(-1, "Seleccione>>");
     protected SelectItem itemSeleccioneLng = new SelectItem(-1l, "Seleccione>>");
@@ -36,7 +45,60 @@ public abstract class BaseJSFBean {
     protected Integer numPanel = 1;
 //</editor-fold>
 
+    @EJB
+    protected ManejoReferenciasSLBean manejoReferenciasSLBean;
     //<editor-fold defaultstate="collapsed" desc="Funciones comunes">
+    /**
+     * Ir al servlet que de descarga de archivos
+     *
+     * @param pRecursoDescarga
+     */
+    protected void irAServletDescarga(RecursoDescarga pRecursoDescarga) {
+        try {
+            fc = FacesContext.getCurrentInstance();
+            ExternalContext ec = fc.getExternalContext();
+            String contextoApp = ec.getApplicationContextPath();
+            HttpSession hs = (HttpSession) ec.getSession(false);            
+            hs.setAttribute("rd", pRecursoDescarga);
+            ec.redirect(contextoApp + "/DescargarArchivoServlet");
+        } catch (IOException ex) {
+            Logger.getLogger(BaseJSFBean.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    /**
+     * Constante para utilizar como base en la conversión de contraseñas
+     */
+    private static final char[] HEXADECIMAL = {'0', '1', '2', '3',
+        '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
+
+    /**
+     * Función para encriptar con el algoritmo sha2 con 512 bytes
+     *
+     * @param clave
+     * @return
+     */
+    public static String hashPasswordSha512(String clave) {
+        try {
+            MessageDigest md = MessageDigest.getInstance("SHA-512");
+            String C6H5COONa = "C6H5COONa";
+            StringBuilder strBClave = new StringBuilder(clave);
+            strBClave.append(C6H5COONa);
+            byte[] bytes = md.digest(strBClave.toString().getBytes());
+            StringBuilder sb = new StringBuilder(2 * bytes.length);
+            for (int i = 0; i < bytes.length; i++) {
+                int low = (bytes[i] & 0x0f);
+                int high = ((bytes[i] & 0xf0) >> 4);
+                sb.append(HEXADECIMAL[high]);
+                sb.append(HEXADECIMAL[low]);
+            }
+            return sb.toString();
+        } catch (NoSuchAlgorithmException ex) {
+            Logger.getLogger(BaseJSFBean.class.getName()).log(Level.SEVERE, null, ex);
+            return "Error";
+        }
+
+    }
+
     protected String encriptar(String cleartext, String key) throws Exception {
         try {
             return crypt(cleartext, key, Cipher.ENCRYPT_MODE);
@@ -109,13 +171,12 @@ public abstract class BaseJSFBean {
 
     public abstract void limpiarVariables();
 
-    public abstract void navegacionLateral_ActionEvent(Integer numPanel);
+    public abstract void navegacionLateral_ActionEvent(ActionEvent ae);
 
     public abstract boolean validarFormulario();
 
     //</editor-fold>
     //<editor-fold defaultstate="collapsed" desc="Manejo listas">
-
     /**
      * Eliminar los elementos seleccionados de una tabla
      *
@@ -162,7 +223,6 @@ public abstract class BaseJSFBean {
     }
 
     //</editor-fold>
-
     /**
      * @return the itemSeleccioneStr
      */

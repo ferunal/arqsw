@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html  xmlns="http://www.w3.org/1999/xhtml"
+       xmlns:ui="http://java.sun.com/jsf/facelets"
+       xmlns:f="http://java.sun.com/jsf/core"
+       xmlns:h="http://java.sun.com/jsf/html"
+       xmlns:icecore="http://www.icefaces.org/icefaces/core"
+       xmlns:ace="http://www.icefaces.org/icefaces/components">
+    <ui:insert name="paneLeftGenInforme">
+
+        <ace:panel header="Registro">
+            <ace:tabSet selectedIndex="#{comprasJSFBean.tabSel}"  >
+                <ace:tabPane label="Datos usuario"  >
+                    <h:panelGroup>
+                        <h:panelGrid columns="2" >
+                            <h:outputText value="Nombres"/>
+                            <ace:textEntry value="#{comprasJSFBean.tablaSysFuncSel.sf.frnNombre}"/>
+                            <h:outputText value="Apellidos"/>
+                            <ace:textEntry value="#{comprasJSFBean.tablaSysFuncSel.sf.frnApellido}"/>
+                            <h:outputText value="Apellidos"/>
+                            <ace:textEntry value="#{comprasJSFBean.tablaSysFuncSel.sf.frnApellido}"/>
+                            <h:outputText value="Usuario"/>
+                            <ace:textEntry value="#{comprasJSFBean.tablaSysFuncSel.sf.frnUsuario}"/>
+                            <h:outputText value="Clave"/>
+                            <ace:textEntry value="#{comprasJSFBean.clave}"/>
+                            <h:outputText value="Repetir clave"/>
+                            <ace:textEntry value="#{comprasJSFBean.repetirClave}"/>
+
+                        </h:panelGrid>
+                        <ace:pushButton value="Siguiente>>" actionListener="#{comprasJSFBean.btnSigTab_AE}"/>
+
+                    </h:panelGroup>  
+                </ace:tabPane>
+                <ace:tabPane label="Detalle usuario">
+                    <ace:panel>
+                        <h:panelGroup >
+                            <h:panelGrid columns="2">
+                                <h:outputText value="País"/>
+                                <ace:textEntry value="#{comprasJSFBean.tablaDetFuncionario.sysDetallefnr.detfPais}"/>
+                                <h:outputText value="Ciudad"/>
+                                <ace:textEntry value="#{comprasJSFBean.tablaDetFuncionario.sysDetallefnr.detfCiudad}"/>
+                                <h:outputText value="Correo electrónico"/>
+                                <ace:textEntry value="#{comprasJSFBean.tablaDetFuncionario.sysDetallefnr.detfCorreoe}"/>
+                                <h:outputText value="Ciudad"/>
+                                <ace:textAreaEntry cols="15" rows="3" value="#{comprasJSFBean.tablaDetFuncionario.sysDetallefnr.detfDireccion}"/>
+                                <h:outputText value="Medio de pago"/>
+                                <ace:selectMenu value="#{comprasJSFBean.medioPagoSel}">
+                                    <f:selectItems value="#{aplicacionJSFBean.lstItemsMedioPago}"/>
+                                </ace:selectMenu> 
+                                <h:outputText value="Número medio pago"/>
+                                <ace:textEntry value="#{comprasJSFBean.tablaDetFuncionario.sysDetallefnr.detfMdpnumero}"/>
+
+
+                            </h:panelGrid>
+
+
+
+                        </h:panelGroup>
+                    </ace:panel>
+                    <ace:panel header="Sus medios de pago">
+
+                        <h:panelGroup>
+                            <ace:dataTable value="#{comprasJSFBean.lstTablaDetSusFunc}"
+                                           var="itemDet">
+                                <ace:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="País"/>
+                                    </f:facet>
+                                    <h:outputText value="#{itemDet.sysDetallefnr.detfPais}"/>
+                                </ace:column>
+                                <ace:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="Ciudad"/>
+                                    </f:facet>
+                                    <h:outputText value="#{itemDet.sysDetallefnr.detfCiudad}"/>
+                                </ace:column>
+                                <ace:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="Dirección 1"/>
+                                    </f:facet>
+                                    <h:outputText value="#{itemDet.sysDetallefnr.detfDireccion}"/>
+                                </ace:column>
+                                <ace:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="Teléfono"/>
+                                    </f:facet>
+                                    <h:outputText value="#{itemDet.sysDetallefnr.detfTelefono}"/>
+                                </ace:column>
+                                <ace:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="Correro electrónico"/>
+                                    </f:facet>
+                                    <h:outputText value="#{itemDet.sysDetallefnr.detfCorreoe}"/>
+                                </ace:column>
+                                <ace:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="Medio pago"/>
+                                    </f:facet>
+                                    <h:outputText value="#{itemDet.sysDetallefnr.mdpId.mdpNombre}"/>
+                                </ace:column>
+                            </ace:dataTable>
+                        </h:panelGroup>
+                    </ace:panel>
+
+
+                    <ace:pushButton value="Siguiente>>" actionListener="#{comprasJSFBean.btnSigTab_AE}"/>
+                </ace:tabPane>
+            </ace:tabSet>
+
+        </ace:panel>
+    </ui:insert>
+</html>
+

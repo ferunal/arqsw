@@ -73,6 +73,8 @@ public class SysDetallefnr implements Serializable {
     private Boolean detfEst;
     @Column(name = "indversion")
     private Integer indversion;
+    @Column(name = "detf_correoe")
+    private String detfCorreoe;
     @OneToMany(mappedBy = "detfId")
     private List<VntMdpxfact> vntMdpxfactList;
     @JoinColumn(name = "frn_id", referencedColumnName = "frn_id")
@@ -217,6 +219,20 @@ public class SysDetallefnr implements Serializable {
     @Override
     public String toString() {
         return "com.unniminuto.lchacon.estampateem.modelo.SysDetallefnr[ detfId=" + detfId + " ]";
+    }
+
+    /**
+     * @return the detfCorreoe
+     */
+    public String getDetfCorreoe() {
+        return detfCorreoe;
+    }
+
+    /**
+     * @param detfCorreoe the detfCorreoe to set
+     */
+    public void setDetfCorreoe(String detfCorreoe) {
+        this.detfCorreoe = detfCorreoe;
     }
     
 }

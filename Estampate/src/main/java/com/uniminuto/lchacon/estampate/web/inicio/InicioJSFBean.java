@@ -16,6 +16,7 @@ import javax.enterprise.context.Initialized;
 import javax.enterprise.context.RequestScoped;
 import javax.enterprise.context.SessionScoped;
 import javax.enterprise.event.Observes;
+import javax.faces.event.ActionEvent;
 import javax.faces.event.ActionListener;
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -81,7 +82,7 @@ public class InicioJSFBean extends BaseJSFBean implements Serializable {
     }
 
     @Override
-    public void navegacionLateral_ActionEvent(Integer numPanel) {
+    public void navegacionLateral_ActionEvent(ActionEvent ae) {
 
     }
 

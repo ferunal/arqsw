@@ -40,6 +40,7 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "PrdEstampa.findByEtmEst", query = "SELECT p FROM PrdEstampa p WHERE p.etmEst = :etmEst"),
     @NamedQuery(name = "PrdEstampa.findByIndversion", query = "SELECT p FROM PrdEstampa p WHERE p.indversion = :indversion")})
 public class PrdEstampa implements Serializable {
+
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -66,6 +67,9 @@ public class PrdEstampa implements Serializable {
     @JoinColumn(name = "rlfr_id", referencedColumnName = "rlfr_id")
     @ManyToOne
     private SysRolxfrn rlfrId;
+    @JoinColumn(name = "tme_id", referencedColumnName = "tme_id")
+    @ManyToOne
+    private PrdTemaest tmeId;
 
     public PrdEstampa() {
     }
@@ -172,5 +176,19 @@ public class PrdEstampa implements Serializable {
     public String toString() {
         return "com.unniminuto.lchacon.estampateem.modelo.PrdEstampa[ etmId=" + etmId + " ]";
     }
-    
+
+    /**
+     * @return the tmeId
+     */
+    public PrdTemaest getTmeId() {
+        return tmeId;
+    }
+
+    /**
+     * @param tmeId the tmeId to set
+     */
+    public void setTmeId(PrdTemaest tmeId) {
+        this.tmeId = tmeId;
+    }
+
 }

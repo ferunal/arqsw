@@ -37,8 +37,14 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "SysSubmodulo.findBySubReglanav", query = "SELECT s FROM SysSubmodulo s WHERE s.subReglanav = :subReglanav"),
     @NamedQuery(name = "SysSubmodulo.findBySubJsfbean", query = "SELECT s FROM SysSubmodulo s WHERE s.subJsfbean = :subJsfbean"),
     @NamedQuery(name = "SysSubmodulo.findBySubEst", query = "SELECT s FROM SysSubmodulo s WHERE s.subEst = :subEst"),
-    @NamedQuery(name = "SysSubmodulo.findByIndversion", query = "SELECT s FROM SysSubmodulo s WHERE s.indversion = :indversion")})
+    @NamedQuery(name = "SysSubmodulo.findByIndversion", query = "SELECT s FROM SysSubmodulo s WHERE s.indversion = :indversion"),
+    @NamedQuery(name = "SysSubmodulo.submodxModulosXFuncionario", query = "SELECT s FROM SysSubmodulo s JOIN s.procId p JOIN s.sysSubmodxfrnList sxf JOIN sxf.frnId frn "
+            + "WHERE p.procId = :procId AND frn.frnId = :frnId ORDER BY s.subNombre  "),
+    @NamedQuery(name = "SysSubmodproc.submodxModulos", query = "SELECT s FROM SysSubmodulo s JOIN s.procId p WHERE p.procId = :procId")
+
+})
 public class SysSubmodulo implements Serializable {
+
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)
@@ -182,5 +188,5 @@ public class SysSubmodulo implements Serializable {
     public String toString() {
         return "com.unniminuto.lchacon.estampateem.modelo.SysSubmodulo[ subId=" + subId + " ]";
     }
-    
+
 }

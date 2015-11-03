@@ -35,8 +35,11 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "SysModulos.findByProcNombre", query = "SELECT s FROM SysModulos s WHERE s.procNombre = :procNombre"),
     @NamedQuery(name = "SysModulos.findByProcDesc", query = "SELECT s FROM SysModulos s WHERE s.procDesc = :procDesc"),
     @NamedQuery(name = "SysModulos.findByProcEstado", query = "SELECT s FROM SysModulos s WHERE s.procEstado = :procEstado"),
-    @NamedQuery(name = "SysModulos.findByIndversion", query = "SELECT s FROM SysModulos s WHERE s.indversion = :indversion")})
+    @NamedQuery(name = "SysModulos.findByIndversion", query = "SELECT s FROM SysModulos s WHERE s.indversion = :indversion"),
+    @NamedQuery(name = "SysModulos.modulosXMenu", query = "SELECT s FROM SysModulos s JOIN s.menId m WHERE m.menId = :menId AND s.procEstado = :procEstado")
+})
 public class SysModulos implements Serializable {
+
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)
@@ -147,5 +150,5 @@ public class SysModulos implements Serializable {
     public String toString() {
         return "com.unniminuto.lchacon.estampateem.modelo.SysModulos[ procId=" + procId + " ]";
     }
-    
+
 }

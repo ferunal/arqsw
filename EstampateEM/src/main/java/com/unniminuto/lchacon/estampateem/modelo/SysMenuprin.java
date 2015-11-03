@@ -34,8 +34,11 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "SysMenuprin.findByMenDesc", query = "SELECT s FROM SysMenuprin s WHERE s.menDesc = :menDesc"),
     @NamedQuery(name = "SysMenuprin.findByMenEst", query = "SELECT s FROM SysMenuprin s WHERE s.menEst = :menEst"),
     @NamedQuery(name = "SysMenuprin.findByIndversion", query = "SELECT s FROM SysMenuprin s WHERE s.indversion = :indversion"),
-    @NamedQuery(name = "SysMenuprin.findByMenOrden", query = "SELECT s FROM SysMenuprin s WHERE s.menOrden = :menOrden")})
+    @NamedQuery(name = "SysMenuprin.findByMenOrden", query = "SELECT s FROM SysMenuprin s WHERE s.menOrden = :menOrden"),
+    @NamedQuery(name = "SysMenuprin.menxFrn", query = "SELECT s FROM SysMenuprin s WHERE  s.menId IN ( SELECT DISTINCT s.menId FROM SysMenuprin m JOIN m.sysModulosList msm JOIN msm.sysSubmoduloList msmp JOIN msmp.sysSubmodxfrnList msxf JOIN msxf.frnId frn WHERE frn.frnId = :frnId) AND s.menEst = :menEst ORDER BY s.menOrden ASC")
+})
 public class SysMenuprin implements Serializable {
+
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)
@@ -145,5 +148,5 @@ public class SysMenuprin implements Serializable {
     public String toString() {
         return "com.unniminuto.lchacon.estampateem.modelo.SysMenuprin[ menId=" + menId + " ]";
     }
-    
+
 }

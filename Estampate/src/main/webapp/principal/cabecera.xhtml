@@ -21,12 +21,82 @@
 
         <h:body>
             <h:form>
-
-
-
-
                 <div id="top" class="top">
                     <ui:insert name="top">Top</ui:insert>
+                    <h:panelGroup style="background-color: #bed4eb;">
+                        <h:panelGroup style="float :left; margin-left: 3px;margin-top: 3px; position: absolute;">
+                            <h:graphicImage name="images/logos/logominuto.png"
+                                            title="Estámpate - Uniminuto"
+                                            style="float: left;top: 44px; left: 2px;"
+                                            height="52px"
+                                            width="160px"/>
+                        </h:panelGroup>
+                        <ace:menuBar styleClass="cabecera" autoSubmenuDisplay="true"  widgetVar="menuBarPrinc"
+                                     model="#{principalJSFBean.menuModel}"
+                                     effect="fade" effectDuration="200"  
+                                     style="background-color:transparent;z-index: 20;margin-top: 55px;border: 0px; left: 10px;">
+                        </ace:menuBar>
+                        <h:panelGroup style="float :left; margin-left: 3px;margin-top: 3px; position: absolute;">
+                            <h:panelGrid style="float: right;top: 3px;margin-top: 3px;Left:170px;position: fixed;z-index: 20"
+                                         columns="2">
+
+
+                                <h:commandButton action="Home" value=" "                                 
+                                                 title="Ir a la página principal"
+                                                 style="z-index: 100"
+                                                 styleClass="btnBandejaEntrada"
+                                                 actionListener="#{principalJSFBean.btnInicio_ActionEvent}">
+
+                                </h:commandButton>  
+                           
+                            </h:panelGrid>
+                        </h:panelGroup>
+                        <h:panelGroup style="position: fixed; right: 5px; ">
+                            <ace:submitMonitor  blockUI="@none" >
+
+                            </ace:submitMonitor> 
+                        </h:panelGroup>
+                        <h:panelGroup style="position: fixed;top: 3px;margin-top: 3px; left: 80%;">
+                            <h:panelGrid columns="1" style="background-color: transparent;float: left">
+                                <h:commandLink value="#{principalJSFBean.sysfuncionario.frnNombre} #{principalJSFBean.sysfuncionario.frnApellido}"
+                                               style="background-color: transparent; font-size: 12px; font-weight: bold;
+                                               width: 10px; position: relative; right: 40px;"
+                                               rendered="#{principalJSFBean.renderNavegacion}" action="bandEntrada"
+                                               title="Usuario"  actionListener="#{principalJSFBean.btnInicio_ActionEvent}"/>
+                            </h:panelGrid>
+                            <h:commandButton id="btnUsuarioMenu" styleClass="btnmenuUsuario"
+                                             style="float: right; position: absolute; right: 2px;">
+                                <h:graphicImage name="images/iconos/ColeccionIconosElyon-29.png" width="36px" height="32px"/>
+                            </h:commandButton>
+                            <ace:menu id="menu" effect="fade" effectDuration="300" position="dynamic"
+                                      trigger="btnUsuarioMenu" my="right top" zindex="250000"
+                                      at="right bottom" triggerEvent="click">
+                                <ace:menuItem value="Acerca de" icon="ui-icon"
+                                              styleClass="letraMenu" style="text-decoration: none"
+                                              actionListener="#{principalJSFBean.navMenu_ActionEvent}"
+                                              action="#{principalJSFBean.navMenu_Action}">
+                                </ace:menuItem>
+                                <ace:menuItem value="Cambiar clave" icon="ui-icon"
+                                              styleClass="letraMenu" style="text-decoration: none"
+                                              actionListener="#{principalJSFBean.navMenu_ActionEvent}"
+                                              action="#{principalJSFBean.navMenu_Action}">
+                                </ace:menuItem>
+                                <ace:menuItem value="Manual" icon="ui-icon" 
+                                              styleClass="letraMenu" style="text-decoration: none"
+                                              actionListener="#{principalJSFBean.navMenu_ActionEvent}"
+                                              action="#{principalJSFBean.navMenu_Action}">                        
+                                </ace:menuItem>
+                                <ace:menuItem value="Cerrar sesión" icon="ui-icon"
+                                              styleClass="letraMenu" style="text-decoration: none"
+                                              actionListener="#{principalJSFBean.navMenu_ActionEvent}"
+                                              action="#{principalJSFBean.navMenu_Action}">
+                                    <f:attribute name="navegacion" value="salir" />
+                                </ace:menuItem>
+                            </ace:menu>
+                        </h:panelGroup>
+                    </h:panelGroup>
+                    <ace:growlMessages globalOnly="true" showDetail="true" showSummary="true"/>
+                                       
                 </div>
                 <div>
                     <div id="left">

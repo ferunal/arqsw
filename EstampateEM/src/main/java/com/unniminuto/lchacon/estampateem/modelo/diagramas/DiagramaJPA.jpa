@@ -1,0 +1,1196 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<jpa:entity-mappings status="GENERATED" jaxb-support="false" id="_14463929693901" xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm orm_2_1.xsd" xmlns:java="http://jcp.org/en/jsr/detail?id=270" xmlns:jpa="http://java.sun.com/xml/ns/persistence/orm" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <jpa:entity jaxb-root-element="false" compositePrimaryKeyType="NONE" static-metamodel="false" abstract="false" class="PrdCamiseta" visibile="true" minimized="false" id="_14463929694444">
+        <annotation>@javax.xml.bind.annotation.XmlRootElement</annotation>
+        <jpa:attributes>
+            <jpa:id name="camId" attribute-type="Long" visibile="true" id="_14463929694475">
+                <jpa:column name="cam_id"/>
+                <jpa:generated-value strategy="IDENTITY"/>
+                <jpa:sequence-generator name="cam_id"/>
+            </jpa:id>
+            <jpa:basic name="camEst" attribute-type="Boolean" visibile="true" id="_14463929694516">
+                <jpa:column name="cam_est"/>
+            </jpa:basic>
+            <jpa:basic name="indversion" attribute-type="Integer" visibile="true" id="_14463929694527">
+                <jpa:column name="indversion"/>
+            </jpa:basic>
+            <jpa:basic name="camPrecio" attribute-type="java.math.BigDecimal" visibile="true" id="_14463929694528">
+                <jpa:column name="cam_precio"/>
+            </jpa:basic>
+            <jpa:many-to-one name="clrId" target-entity="RefColor" primaryKey="false" connected-entity-id="_144639296961746" connected-attribute-id="_144639296961752" visibile="true" id="_144639296945410">
+                <jpa:join-column name="clr_id" referenced-column-name="clr_id"/>
+            </jpa:many-to-one>
+            <jpa:many-to-one name="estId" target-entity="RefEstilo" primaryKey="false" connected-entity-id="_144639296964453" connected-attribute-id="_144639296964559" visibile="true" id="_144639296945411">
+                <jpa:join-column name="est_id" referenced-column-name="est_id"/>
+            </jpa:many-to-one>
+            <jpa:many-to-one name="matId" target-entity="RefMaterial" primaryKey="false" connected-entity-id="_144639296967360" connected-attribute-id="_144639296967466" visibile="true" id="_144639296945412">
+                <jpa:join-column name="mat_id" referenced-column-name="mat_id"/>
+            </jpa:many-to-one>
+            <jpa:many-to-one name="tlaId" target-entity="RefTalla" primaryKey="false" connected-entity-id="_144639296970667" connected-attribute-id="_144639296970673" visibile="true" id="_144639296945413">
+                <jpa:join-column name="tla_id" referenced-column-name="tla_id"/>
+            </jpa:many-to-one>
+            <jpa:one-to-many name="vntDetfacturaList" target-entity="VntDetfactura" mapped-by="camId" collection-type="java.util.List" connected-entity-id="_1446392969991157" connected-attribute-id="_1446392969991164" visibile="true" id="_14463929694539"/>
+        </jpa:attributes>
+        <jpa:named-query name="PrdCamiseta.findAll">
+            <jpa:query>SELECT p FROM PrdCamiseta p</jpa:query>
+        </jpa:named-query>
+        <jpa:named-query name="PrdCamiseta.findByCamId">
+            <jpa:query>SELECT p FROM PrdCamiseta p WHERE p.camId = :camId</jpa:query>
+        </jpa:named-query>
+        <jpa:named-query name="PrdCamiseta.findByCamEst">
+            <jpa:query>SELECT p FROM PrdCamiseta p WHERE p.camEst = :camEst</jpa:query>
+        </jpa:named-query>
+        <jpa:named-query name="PrdCamiseta.findByIndversion">
+            <jpa:query>SELECT p FROM PrdCamiseta p WHERE p.indversion = :indversion</jpa:query>
+        </jpa:named-query>
+        <jpa:named-query name="PrdCamiseta.findByCamPrecio">
+            <jpa:query>SELECT p FROM PrdCamiseta p WHERE p.camPrecio = :camPrecio</jpa:query>
+        </jpa:named-query>
+        <jpa:table name="prd_camiseta"/>
+    </jpa:entity>
+    <jpa:entity jaxb-root-element="false" compositePrimaryKeyType="NONE" static-metamodel="false" abstract="false" class="PrdEstampa" visibile="true" minimized="false" id="_144639296949414">
+        <annotation>@javax.xml.bind.annotation.XmlRootElement</annotation>
+        <jpa:attributes>
+            <jpa:id name="etmId" attribute-type="Long" visibile="true" id="_144639296949415">
+                <jpa:column name="etm_id"/>
+                <jpa:generated-value strategy="IDENTITY"/>
+                <jpa:sequence-generator name="etm_id"/>
+            </jpa:id>
+            <jpa:basic name="etmNombre" attribute-type="String" visibile="true" id="_144639296949416">
+                <annotation>
+                    <name>javax.validation.constraints.Size</name>
+                </annotation>
+                <jpa:column name="etm_nombre"/>
+            </jpa:basic>
+            <jpa:basic name="etmDesc" attribute-type="String" visibile="true" id="_144639296949517">
+                <annotation>
+                    <name>javax.validation.constraints.Size</name>
+                </annotation>
+                <jpa:column name="etm_desc"/>
+            </jpa:basic>
+            <jpa:basic name="etmPrecio" attribute-type="java.math.BigDecimal" visibile="true" id="_144639296949518">
+                <jpa:column name="etm_precio"/>
+            </jpa:basic>
+            <jpa:basic name="etmEst" attribute-type="Boolean" visibile="true" id="_144639296949519">
+                <jpa:column name="etm_est"/>
+            </jpa:basic>
+            <jpa:basic name="indversion" attribute-type="Integer" visibile="true" id="_144639296949520">
+                <jpa:column name="indversion"/>
+            </jpa:basic>
+            <jpa:many-to-one name="rlfrId" target-entity="SysRolxfrn" primaryKey="false" connected-entity-id="_1446392969892129" connected-attribute-id="_1446392969893133" visibile="true" id="_144639296949623">
+                <jpa:join-column name="rlfr_id" referenced-column-name="rlfr_id"/>
+            </jpa:many-to-one>
+            <jpa:many-to-one name="tmeId" target-entity="PrdTemaest" primaryKey="false" connected-entity-id="_144639296958939" connected-attribute-id="_144639296958945" visibile="true" id="_144639296949624">
+                <jpa:join-column name="tme_id" referenced-column-name="tme_id"/>
+            </jpa:many-to-one>
+            <jpa:one-to-many name="prdImgxestList" target-entity="PrdImgxest" mapped-by="etmId" collection-type="java.util.List" connected-entity-id="_144639296956133" connected-attribute-id="_144639296956237" visibile="true" id="_144639296949521"/>
+            <jpa:one-to-many name="vntEstxvnList" target-entity="VntEstxvn" mapped-by="etmId" collection-type="java.util.List" connected-entity-id="_1446392970013167" connected-attribute-id="_1446392970013172" visibile="true" id="_144639296949522"/>
+        </jpa:attributes>
+        <jpa:named-query name="PrdEstampa.findAll">
+            <jpa:query>SELECT p FROM PrdEstampa p</jpa:query>
+        </jpa:named-query>
+        <jpa:named-query name="PrdEstampa.findByEtmId">
+            <jpa:query>SELECT p FROM PrdEstampa p WHERE p.etmId = :etmId</jpa:query>
+        </jpa:named-query>
+        <jpa:named-query name="PrdEstampa.findByEtmNombre">
+            <jpa:query>SELECT p FROM PrdEstampa p WHERE p.etmNombre = :etmNombre</jpa:query>
+        </jpa:named-query>
+        <jpa:named-query name="PrdEstampa.findByEtmDesc">
+            <jpa:query>SELECT p FROM PrdEstampa p WHERE p.etmDesc = :etmDesc</jpa:query>
+        </jpa:named-query>
+        <jpa:named-query name="PrdEstampa.findByEtmPrecio">
+            <jpa:query>SELECT p FROM PrdEstampa p WHERE p.etmPrecio = :etmPrecio</jpa:query>
+        </jpa:named-query>
+        <jpa:named-query name="PrdEstampa.findByEtmEst">
+            <jpa:query>SELECT p FROM PrdEstampa p WHERE p.etmEst = :etmEst</jpa:query>
+        </jpa:named-query>
+        <jpa:named-query name="PrdEstampa.findByIndversion">
+            <jpa:query>SELECT p FROM PrdEstampa p WHERE p.indversion = :indversion</jpa:query>
+        </jpa:named-query>
+        <jpa:table name="prd_estampa"/>
+    </jpa:entity>
+    <jpa:entity jaxb-root-element="false" compositePrimaryKeyType="NONE" static-metamodel="false" abstract="false" class="PrdImagen" visibile="true" minimized="false" id="_144639296953325">
+        <annotation>@javax.xml.bind.annotation.XmlRootElement</annotation>
+        <jpa:attributes>
+            <jpa:id name="imgId" attribute-type="Long" visibile="true" id="_144639296953326">
+                <jpa:column name="img_id"/>
+                <jpa:generated-value strategy="IDENTITY"/>
+                <jpa:sequence-generator name="img_id"/>
+            </jpa:id>
+            <jpa:basic name="imgNombre" attribute-type="String" visibile="true" id="_144639296953327">
+                <annotation>
+                    <name>javax.validation.constraints.Size</name>
+                </annotation>
+                <jpa:column name="img_nombre"/>
+            </jpa:basic>
+            <jpa:basic name="imgDesc" attribute-type="String" visibile="true" id="_144639296953328">
+                <annotation>
+                    <name>javax.validation.constraints.Size</name>
+                </annotation>
+                <jpa:column name="img_desc"/>
+            </jpa:basic>
+            <jpa:basic name="imgRuta" attribute-type="String" visibile="true" id="_144639296953329">
+                <annotation>
+                    <name>javax.validation.constraints.Size</name>
+                </annotation>
+                <jpa:column name="img_ruta"/>
+            </jpa:basic>
+            <jpa:basic name="imgEst" attribute-type="Boolean" visibile="true" id="_144639296953330">
+                <jpa:column name="img_est"/>
+            </jpa:basic>
+            <jpa:basic name="indversion" attribute-type="Integer" visibile="true" id="_144639296953331">
+                <jpa:column name="indversion"/>
+            </jpa:basic>
+            <jpa:one-to-many name="prdImgxestList" target-entity="PrdImgxest" mapped-by="imgId" collection-type="java.util.List" connected-entity-id="_144639296956133" connected-attribute-id="_144639296956238" visibile="true" id="_144639296953332"/>
+        </jpa:attributes>
+        <jpa:named-query name="PrdImagen.findAll">
+            <jpa:query>SELECT p FROM PrdImagen p</jpa:query>
+        </jpa:named-query>
+        <jpa:named-query name="PrdImagen.findByImgId">
+            <jpa:query>SELECT p FROM PrdImagen p WHERE p.imgId = :imgId</jpa:query>
+        </jpa:named-query>
+        <jpa:named-query name="PrdImagen.findByImgNombre">
+            <jpa:query>SELECT p FROM PrdImagen p WHERE p.imgNombre = :imgNombre</jpa:query>
+        </jpa:named-query>
+        <jpa:named-query name="PrdImagen.findByImgDesc">
+            <jpa:query>SELECT p FROM PrdImagen p WHERE p.imgDesc = :imgDesc</jpa:query>
+        </jpa:named-query>
+        <jpa:named-query name="PrdImagen.findByImgRuta">
+            <jpa:query>SELECT p FROM PrdImagen p WHERE p.imgRuta = :imgRuta</jpa:query>
+        </jpa:named-query>
+        <jpa:named-query name="PrdImagen.findByImgEst">
+            <jpa:query>SELECT p FROM PrdImagen p WHERE p.imgEst = :imgEst</jpa:query>
+        </jpa:named-query>
+        <jpa:named-query name="PrdImagen.findByIndversion">
+            <jpa:query>SELECT p FROM PrdImagen p WHERE p.indversion = :indversion</jpa:query>
+        </jpa:named-query>
+        <jpa:table name="prd_imagen"/>
+    </jpa:entity>
+    <jpa:entity jaxb-root-element="false" compositePrimaryKeyType="NONE" static-metamodel="false" abstract="false" class="PrdImgxest" visibile="true" minimized="false" id="_144639296956133">
+        <annotation>@javax.xml.bind.annotation.XmlRootElement</annotation>
+        <jpa:attributes>
+            <jpa:id name="imxeId" attribute-type="Long" visibile="true" id="_144639296956134">
+                <jpa:column name="imxe_id"/>
+                <jpa:generated-value strategy="IDENTITY"/>
+                <jpa:sequence-generator name="imxe_id"/>
+            </jpa:id>
+            <jpa:basic name="imxeEst" attribute-type="Boolean" visibile="true" id="_144639296956235">
+                <jpa:column name="imxe_est"/>
+            </jpa:basic>
+            <jpa:basic name="indversion" attribute-type="Integer" visibile="true" id="_144639296956236">
+                <jpa:column name="indversion"/>
+            </jpa:basic>
+            <jpa:many-to-one name="etmId" target-entity="PrdEstampa" primaryKey="false" connected-entity-id="_144639296949414" connected-attribute-id="_144639296949521" visibile="true" id="_144639296956237">
+                <jpa:join-column name="etm_id" referenced-column-name="etm_id"/>
+            </jpa:many-to-one>
+            <jpa:many-to-one name="imgId" target-entity="PrdImagen" primaryKey="false" connected-entity-id="_144639296953325" connected-attribute-id="_144639296953332" visibile="true" id="_144639296956238">
+                <jpa:join-column name="img_id" referenced-column-name="img_id"/>
+            </jpa:many-to-one>
+        </jpa:attributes>
+        <jpa:named-query name="PrdImgxest.findAll">
+            <jpa:query>SELECT p FROM PrdImgxest p</jpa:query>
+        </jpa:named-query>
+        <jpa:named-query name="PrdImgxest.findByImxeId">
+            <jpa:query>SELECT p FROM PrdImgxest p WHERE p.imxeId = :imxeId</jpa:query>
+        </jpa:named-query>
+        <jpa:named-query name="PrdImgxest.findByImxeEst">
+            <jpa:query>SELECT p FROM PrdImgxest p WHERE p.imxeEst = :imxeEst</jpa:query>
+        </jpa:named-query>
+        <jpa:named-query name="PrdImgxest.findByIndversion">
+            <jpa:query>SELECT p FROM PrdImgxest p WHERE p.indversion = :indversion</jpa:query>
+        </jpa:named-query>
+        <jpa:table name="prd_imgxest"/>
+    </jpa:entity>
+    <jpa:entity jaxb-root-element="false" compositePrimaryKeyType="NONE" static-metamodel="false" abstract="false" class="PrdTemaest" visibile="true" minimized="false" id="_144639296958939">
+        <annotation>@javax.xml.bind.annotation.XmlRootElement</annotation>
+        <jpa:attributes>
+            <jpa:id name="tmeId" attribute-type="Integer" visibile="true" id="_144639296958940">
+                <annotation>
+                    <name>javax.validation.constraints.NotNull</name>
+                </annotation>
+                <jpa:column name="tme_id"/>
+                <jpa:sequence-generator name="tme_id"/>
+            </jpa:id>
+            <jpa:basic name="tmeNombre" attribute-type="String" visibile="true" id="_144639296958941">
+                <annotation>
+                    <name>javax.validation.constraints.Size</name>
+                </annotation>
+                <jpa:column name="tme_nombre"/>
+            </jpa:basic>
+            <jpa:basic name="tmeDesc" attribute-type="String" visibile="true" id="_144639296958942">
+                <annotation>
+                    <name>javax.validation.constraints.Size</name>
+                </annotation>
+                <jpa:column name="tme_desc"/>
+            </jpa:basic>
+            <jpa:basic name="tmeEst" attribute-type="Boolean" visibile="true" id="_144639296958943">
+                <jpa:column name="tme_est"/>
+            </jpa:basic>
+            <jpa:basic name="indversion" attribute-type="Integer" visibile="true" id="_144639296958944">
+                <jpa:column name="indversion"/>
+            </jpa:basic>
+            <jpa:one-to-many name="prdEstampaList" target-entity="PrdEstampa" mapped-by="tmeId" collection-type="java.util.List" connected-entity-id="_144639296949414" connected-attribute-id="_144639296949624" visibile="true" id="_144639296958945"/>
+        </jpa:attributes>
+        <jpa:named-query name="PrdTemaest.findAll">
+            <jpa:query>SELECT p FROM PrdTemaest p</jpa:query>
+        </jpa:named-query>
+        <jpa:named-query name="PrdTemaest.findByTmeId">
+            <jpa:query>SELECT p FROM PrdTemaest p WHERE p.tmeId = :tmeId</jpa:query>
+        </jpa:named-query>
+        <jpa:named-query name="PrdTemaest.findByTmeNombre">
+            <jpa:query>SELECT p FROM PrdTemaest p WHERE p.tmeNombre = :tmeNombre</jpa:query>
+        </jpa:named-query>
+        <jpa:named-query name="PrdTemaest.findByTmeDesc">
+            <jpa:query>SELECT p FROM PrdTemaest p WHERE p.tmeDesc = :tmeDesc</jpa:query>
+        </jpa:named-query>
+        <jpa:named-query name="PrdTemaest.findByTmeEst">
+            <jpa:query>SELECT p FROM PrdTemaest p WHERE p.tmeEst = :tmeEst</jpa:query>
+        </jpa:named-query>
+        <jpa:named-query name="PrdTemaest.findByIndversion">
+            <jpa:query>SELECT p FROM PrdTemaest p WHERE p.indversion = :indversion</jpa:query>
+        </jpa:named-query>
+        <jpa:table name="prd_temaest"/>
+    </jpa:entity>
+    <jpa:entity jaxb-root-element="false" compositePrimaryKeyType="NONE" static-metamodel="false" abstract="false" class="RefColor" visibile="true" minimized="false" id="_144639296961746">
+        <annotation>@javax.xml.bind.annotation.XmlRootElement</annotation>
+        <jpa:attributes>
+            <jpa:id name="clrId" attribute-type="Integer" visibile="true" id="_144639296961747">
+                <annotation>
+                    <name>javax.validation.constraints.NotNull</name>
+                </annotation>
+                <jpa:column name="clr_id"/>
+                <jpa:sequence-generator name="clr_id"/>
+            </jpa:id>
+            <jpa:basic name="clrNombre" attribute-type="String" visibile="true" id="_144639296961748">
+                <annotation>
+                    <name>javax.validation.constraints.Size</name>
+                </annotation>
+                <jpa:column name="clr_nombre"/>
+            </jpa:basic>
+            <jpa:basic name="clrDesc" attribute-type="String" visibile="true" id="_144639296961749">
+                <annotation>
+                    <name>javax.validation.constraints.Size</name>
+                </annotation>
+                <jpa:column name="clr_desc"/>
+            </jpa:basic>
+            <jpa:basic name="clrEst" attribute-type="Boolean" visibile="true" id="_144639296961750">
+                <jpa:column name="clr_est"/>
+            </jpa:basic>
+            <jpa:basic name="indversion" attribute-type="Integer" visibile="true" id="_144639296961751">
+                <jpa:column name="indversion"/>
+            </jpa:basic>
+            <jpa:one-to-many name="prdCamisetaList" target-entity="PrdCamiseta" mapped-by="clrId" collection-type="java.util.List" connected-entity-id="_14463929694444" connected-attribute-id="_144639296945410" visibile="true" id="_144639296961752"/>
+        </jpa:attributes>
+        <jpa:named-query name="RefColor.findAll">
+            <jpa:query>SELECT r FROM RefColor r</jpa:query>
+        </jpa:named-query>
+        <jpa:named-query name="RefColor.findByClrId">
+            <jpa:query>SELECT r FROM RefColor r WHERE r.clrId = :clrId</jpa:query>
+        </jpa:named-query>
+        <jpa:named-query name="RefColor.findByClrNombre">
+            <jpa:query>SELECT r FROM RefColor r WHERE r.clrNombre = :clrNombre</jpa:query>
+        </jpa:named-query>
+        <jpa:named-query name="RefColor.findByClrDesc">
+            <jpa:query>SELECT r FROM RefColor r WHERE r.clrDesc = :clrDesc</jpa:query>
+        </jpa:named-query>
+        <jpa:named-query name="RefColor.findByClrEst">
+            <jpa:query>SELECT r FROM RefColor r WHERE r.clrEst = :clrEst</jpa:query>
+        </jpa:named-query>
+        <jpa:named-query name="RefColor.findByIndversion">
+            <jpa:query>SELECT r FROM RefColor r WHERE r.indversion = :indversion</jpa:query>
+        </jpa:named-query>
+        <jpa:table name="ref_color"/>
+    </jpa:entity>
+    <jpa:entity jaxb-root-element="false" compositePrimaryKeyType="NONE" static-metamodel="false" abstract="false" class="RefEstilo" visibile="true" minimized="false" id="_144639296964453">
+        <annotation>@javax.xml.bind.annotation.XmlRootElement</annotation>
+        <jpa:attributes>
+            <jpa:id name="estId" attribute-type="Integer" visibile="true" id="_144639296964454">
+                <annotation>
+                    <name>javax.validation.constraints.NotNull</name>
+                </annotation>
+                <jpa:column name="est_id"/>
+                <jpa:sequence-generator name="est_id"/>
+            </jpa:id>
+            <jpa:basic name="estNombre" attribute-type="String" visibile="true" id="_144639296964455">
+                <annotation>
+                    <name>javax.validation.constraints.Size</name>
+                </annotation>
+                <jpa:column name="est_nombre"/>
+            </jpa:basic>
+            <jpa:basic name="estDesc" attribute-type="String" visibile="true" id="_144639296964456">
+                <annotation>
+                    <name>javax.validation.constraints.Size</name>
+                </annotation>
+                <jpa:column name="est_desc"/>
+            </jpa:basic>
+            <jpa:basic name="estEst" attribute-type="Boolean" visibile="true" id="_144639296964457">
+                <jpa:column name="est_est"/>
+            </jpa:basic>
+            <jpa:basic name="indversion" attribute-type="Integer" visibile="true" id="_144639296964458">
+                <jpa:column name="indversion"/>
+            </jpa:basic>
+            <jpa:one-to-many name="prdCamisetaList" target-entity="PrdCamiseta" mapped-by="estId" collection-type="java.util.List" connected-entity-id="_14463929694444" connected-attribute-id="_144639296945411" visibile="true" id="_144639296964559"/>
+        </jpa:attributes>
+        <jpa:named-query name="RefEstilo.findAll">
+            <jpa:query>SELECT r FROM RefEstilo r</jpa:query>
+        </jpa:named-query>
+        <jpa:named-query name="RefEstilo.findByEstId">
+            <jpa:query>SELECT r FROM RefEstilo r WHERE r.estId = :estId</jpa:query>
+        </jpa:named-query>
+        <jpa:named-query name="RefEstilo.findByEstNombre">
+            <jpa:query>SELECT r FROM RefEstilo r WHERE r.estNombre = :estNombre</jpa:query>
+        </jpa:named-query>
+        <jpa:named-query name="RefEstilo.findByEstDesc">
+            <jpa:query>SELECT r FROM RefEstilo r WHERE r.estDesc = :estDesc</jpa:query>
+        </jpa:named-query>
+        <jpa:named-query name="RefEstilo.findByEstEst">
+            <jpa:query>SELECT r FROM RefEstilo r WHERE r.estEst = :estEst</jpa:query>
+        </jpa:named-query>
+        <jpa:named-query name="RefEstilo.findByIndversion">
+            <jpa:query>SELECT r FROM RefEstilo r WHERE r.indversion = :indversion</jpa:query>
+        </jpa:named-query>
+        <jpa:table name="ref_estilo"/>
+    </jpa:entity>
+    <jpa:entity jaxb-root-element="false" compositePrimaryKeyType="NONE" static-metamodel="false" abstract="false" class="RefMaterial" visibile="true" minimized="false" id="_144639296967360">
+        <annotation>@javax.xml.bind.annotation.XmlRootElement</annotation>
+        <jpa:attributes>
+            <jpa:id name="matId" attribute-type="Integer" visibile="true" id="_144639296967361">
+                <annotation>
+                    <name>javax.validation.constraints.NotNull</name>
+                </annotation>
+                <jpa:column name="mat_id"/>
+                <jpa:sequence-generator name="mat_id"/>
+            </jpa:id>
+            <jpa:basic name="matNombre" attribute-type="String" visibile="true" id="_144639296967362">
+                <annotation>
+                    <name>javax.validation.constraints.Size</name>
+                </annotation>
+                <jpa:column name="mat_nombre"/>
+            </jpa:basic>
+            <jpa:basic name="matDesc" attribute-type="String" visibile="true" id="_144639296967363">
+                <annotation>
+                    <name>javax.validation.constraints.Size</name>
+                </annotation>
+                <jpa:column name="mat_desc"/>
+            </jpa:basic>
+            <jpa:basic name="matEst" attribute-type="Boolean" visibile="true" id="_144639296967464">
+                <jpa:column name="mat_est"/>
+            </jpa:basic>
+            <jpa:basic name="indversion" attribute-type="Integer" visibile="true" id="_144639296967465">
+                <jpa:column name="indversion"/>
+            </jpa:basic>
+            <jpa:one-to-many name="prdCamisetaList" target-entity="PrdCamiseta" mapped-by="matId" collection-type="java.util.List" connected-entity-id="_14463929694444" connected-attribute-id="_144639296945412" visibile="true" id="_144639296967466"/>
+        </jpa:attributes>
+        <jpa:named-query name="RefMaterial.findAll">
+            <jpa:query>SELECT r FROM RefMaterial r</jpa:query>
+        </jpa:named-query>
+        <jpa:named-query name="RefMaterial.findByMatId">
+            <jpa:query>SELECT r FROM RefMaterial r WHERE r.matId = :matId</jpa:query>
+        </jpa:named-query>
+        <jpa:named-query name="RefMaterial.findByMatNombre">
+            <jpa:query>SELECT r FROM RefMaterial r WHERE r.matNombre = :matNombre</jpa:query>
+        </jpa:named-query>
+        <jpa:named-query name="RefMaterial.findByMatDesc">
+            <jpa:query>SELECT r FROM RefMaterial r WHERE r.matDesc = :matDesc</jpa:query>
+        </jpa:named-query>
+        <jpa:named-query name="RefMaterial.findByMatEst">
+            <jpa:query>SELECT r FROM RefMaterial r WHERE r.matEst = :matEst</jpa:query>
+        </jpa:named-query>
+        <jpa:named-query name="RefMaterial.findByIndversion">
+            <jpa:query>SELECT r FROM RefMaterial r WHERE r.indversion = :indversion</jpa:query>
+        </jpa:named-query>
+        <jpa:table name="ref_material"/>
+    </jpa:entity>
+    <jpa:entity jaxb-root-element="false" compositePrimaryKeyType="NONE" static-metamodel="false" abstract="false" class="RefTalla" visibile="true" minimized="false" id="_144639296970667">
+        <annotation>@javax.xml.bind.annotation.XmlRootElement</annotation>
+        <jpa:attributes>
+            <jpa:id name="tlaId" attribute-type="Integer" visibile="true" id="_144639296970668">
+                <annotation>
+                    <name>javax.validation.constraints.NotNull</name>
+                </annotation>
+                <jpa:column name="tla_id"/>
+                <jpa:sequence-generator name="tla_id"/>
+            </jpa:id>
+            <jpa:basic name="tlaNombre" attribute-type="String" visibile="true" id="_144639296970669">
+                <annotation>
+                    <name>javax.validation.constraints.Size</name>
+                </annotation>
+                <jpa:column name="tla_nombre"/>
+            </jpa:basic>
+            <jpa:basic name="tlaDesc" attribute-type="String" visibile="true" id="_144639296970670">
+                <annotation>
+                    <name>javax.validation.constraints.Size</name>
+                </annotation>
+                <jpa:column name="tla_desc"/>
+            </jpa:basic>
+            <jpa:basic name="tlaEst" attribute-type="Boolean" visibile="true" id="_144639296970671">
+                <jpa:column name="tla_est"/>
+            </jpa:basic>
+            <jpa:basic name="indversion" attribute-type="Integer" visibile="true" id="_144639296970672">
+                <jpa:column name="indversion"/>
+            </jpa:basic>
+            <jpa:one-to-many name="prdCamisetaList" target-entity="PrdCamiseta" mapped-by="tlaId" collection-type="java.util.List" connected-entity-id="_14463929694444" connected-attribute-id="_144639296945413" visibile="true" id="_144639296970673"/>
+        </jpa:attributes>
+        <jpa:named-query name="RefTalla.findAll">
+            <jpa:query>SELECT r FROM RefTalla r</jpa:query>
+        </jpa:named-query>
+        <jpa:named-query name="RefTalla.findByTlaId">
+            <jpa:query>SELECT r FROM RefTalla r WHERE r.tlaId = :tlaId</jpa:query>
+        </jpa:named-query>
+        <jpa:named-query name="RefTalla.findByTlaNombre">
+            <jpa:query>SELECT r FROM RefTalla r WHERE r.tlaNombre = :tlaNombre</jpa:query>
+        </jpa:named-query>
+        <jpa:named-query name="RefTalla.findByTlaDesc">
+            <jpa:query>SELECT r FROM RefTalla r WHERE r.tlaDesc = :tlaDesc</jpa:query>
+        </jpa:named-query>
+        <jpa:named-query name="RefTalla.findByTlaEst">
+            <jpa:query>SELECT r FROM RefTalla r WHERE r.tlaEst = :tlaEst</jpa:query>
+        </jpa:named-query>
+        <jpa:named-query name="RefTalla.findByIndversion">
+            <jpa:query>SELECT r FROM RefTalla r WHERE r.indversion = :indversion</jpa:query>
+        </jpa:named-query>
+        <jpa:table name="ref_talla"/>
+    </jpa:entity>
+    <jpa:entity jaxb-root-element="false" compositePrimaryKeyType="NONE" static-metamodel="false" abstract="false" class="SysDetallefnr" visibile="true" minimized="false" id="_144639296973874">
+        <annotation>@javax.xml.bind.annotation.XmlRootElement</annotation>
+        <jpa:attributes>
+            <jpa:id name="detfId" attribute-type="Long" visibile="true" id="_144639296973875">
+                <jpa:column name="detf_id"/>
+                <jpa:generated-value strategy="IDENTITY"/>
+                <jpa:sequence-generator name="detf_id"/>
+            </jpa:id>
+            <jpa:basic name="detfDireccion" attribute-type="String" visibile="true" id="_144639296973976">
+                <annotation>
+                    <name>javax.validation.constraints.Size</name>
+                </annotation>
+                <jpa:column name="detf_direccion"/>
+            </jpa:basic>
+            <jpa:basic name="detfDireccion1" attribute-type="String" visibile="true" id="_144639296973977">
+                <annotation>
+                    <name>javax.validation.constraints.Size</name>
+                </annotation>
+                <jpa:column name="detf_direccion1"/>
+            </jpa:basic>
+            <jpa:basic name="detfTelefono" attribute-type="String" visibile="true" id="_144639296973978">
+                <annotation>
+                    <name>javax.validation.constraints.Size</name>
+                </annotation>
+                <jpa:column name="detf_telefono"/>
+            </jpa:basic>
+            <jpa:basic name="detfPais" attribute-type="String" visibile="true" id="_144639296973979">
+                <annotation>
+                    <name>javax.validation.constraints.Size</name>
+                </annotation>
+                <jpa:column name="detf_pais"/>
+            </jpa:basic>
+            <jpa:basic name="detfCiudad" attribute-type="String" visibile="true" id="_144639296973980">
+                <annotation>
+                    <name>javax.validation.constraints.Size</name>
+                </annotation>
+                <jpa:column name="detf_ciudad"/>
+            </jpa:basic>
+            <jpa:basic name="detfMdpnumero" attribute-type="java.math.BigInteger" visibile="true" id="_144639296973981">
+                <jpa:column name="detf_mdpnumero"/>
+            </jpa:basic>
+            <jpa:basic name="detfMdpdigitver" attribute-type="Integer" visibile="true" id="_144639296973982">
+                <jpa:column name="detf_mdpdigitver"/>
+            </jpa:basic>
+            <jpa:basic name="detfEst" attribute-type="Boolean" visibile="true" id="_144639296973983">
+                <jpa:column name="detf_est"/>
+            </jpa:basic>
+            <jpa:basic name="indversion" attribute-type="Integer" visibile="true" id="_144639296973984">
+                <jpa:column name="indversion"/>
+            </jpa:basic>
+            <jpa:many-to-one name="frnId" target-entity="SysFuncionario" primaryKey="false" connected-entity-id="_144639296976588" connected-attribute-id="_144639296976698" visibile="true" id="_144639296973986">
+                <jpa:join-column name="frn_id" referenced-column-name="frn_id"/>
+            </jpa:many-to-one>
+            <jpa:many-to-one name="mdpId" target-entity="SysMediopago" primaryKey="false" connected-entity-id="_1446392969791100" connected-attribute-id="_1446392969792105" visibile="true" id="_144639296973987">
+                <jpa:join-column name="mdp_id" referenced-column-name="mdp_id"/>
+            </jpa:many-to-one>
+            <jpa:one-to-many name="vntMdpxfactList" target-entity="VntMdpxfact" mapped-by="detfId" collection-type="java.util.List" connected-entity-id="_1446392970055186" connected-attribute-id="_1446392970055191" visibile="true" id="_144639296973985"/>
+        </jpa:attributes>
+        <jpa:named-query name="SysDetallefnr.findAll">
+            <jpa:query>SELECT s FROM SysDetallefnr s</jpa:query>
+        </jpa:named-query>
+        <jpa:named-query name="SysDetallefnr.findByDetfId">
+            <jpa:query>SELECT s FROM SysDetallefnr s WHERE s.detfId = :detfId</jpa:query>
+        </jpa:named-query>
+        <jpa:named-query name="SysDetallefnr.findByDetfDireccion">
+            <jpa:query>SELECT s FROM SysDetallefnr s WHERE s.detfDireccion = :detfDireccion</jpa:query>
+        </jpa:named-query>
+        <jpa:named-query name="SysDetallefnr.findByDetfDireccion1">
+            <jpa:query>SELECT s FROM SysDetallefnr s WHERE s.detfDireccion1 = :detfDireccion1</jpa:query>
+        </jpa:named-query>
+        <jpa:named-query name="SysDetallefnr.findByDetfTelefono">
+            <jpa:query>SELECT s FROM SysDetallefnr s WHERE s.detfTelefono = :detfTelefono</jpa:query>
+        </jpa:named-query>
+        <jpa:named-query name="SysDetallefnr.findByDetfPais">
+            <jpa:query>SELECT s FROM SysDetallefnr s WHERE s.detfPais = :detfPais</jpa:query>
+        </jpa:named-query>
+        <jpa:named-query name="SysDetallefnr.findByDetfCiudad">
+            <jpa:query>SELECT s FROM SysDetallefnr s WHERE s.detfCiudad = :detfCiudad</jpa:query>
+        </jpa:named-query>
+        <jpa:named-query name="SysDetallefnr.findByDetfMdpnumero">
+            <jpa:query>SELECT s FROM SysDetallefnr s WHERE s.detfMdpnumero = :detfMdpnumero</jpa:query>
+        </jpa:named-query>
+        <jpa:named-query name="SysDetallefnr.findByDetfMdpdigitver">
+            <jpa:query>SELECT s FROM SysDetallefnr s WHERE s.detfMdpdigitver = :detfMdpdigitver</jpa:query>
+        </jpa:named-query>
+        <jpa:named-query name="SysDetallefnr.findByDetfEst">
+            <jpa:query>SELECT s FROM SysDetallefnr s WHERE s.detfEst = :detfEst</jpa:query>
+        </jpa:named-query>
+        <jpa:named-query name="SysDetallefnr.findByIndversion">
+            <jpa:query>SELECT s FROM SysDetallefnr s WHERE s.indversion = :indversion</jpa:query>
+        </jpa:named-query>
+        <jpa:table name="sys_detallefnr"/>
+    </jpa:entity>
+    <jpa:entity jaxb-root-element="false" compositePrimaryKeyType="NONE" static-metamodel="false" abstract="false" class="SysFuncionario" visibile="true" minimized="false" id="_144639296976588">
+        <annotation>@javax.xml.bind.annotation.XmlRootElement</annotation>
+        <jpa:attributes>
+            <jpa:id name="frnId" attribute-type="String" visibile="true" id="_144639296976589">
+                <annotation>
+                    <name>javax.validation.constraints.NotNull</name>
+                </annotation>
+                <annotation>
+                    <name>javax.validation.constraints.Size</name>
+                </annotation>
+                <jpa:column name="frn_id"/>
+                <jpa:sequence-generator name="frn_id"/>
+            </jpa:id>
+            <jpa:basic name="frnNombre" attribute-type="String" visibile="true" id="_144639296976590">
+                <annotation>
+                    <name>javax.validation.constraints.Size</name>
+                </annotation>
+                <jpa:column name="frn_nombre"/>
+            </jpa:basic>
+            <jpa:basic name="frnApellido" attribute-type="String" visibile="true" id="_144639296976591">
+                <annotation>
+                    <name>javax.validation.constraints.Size</name>
+                </annotation>
+                <jpa:column name="frn_apellido"/>
+            </jpa:basic>
+            <jpa:basic name="frnUsuario" attribute-type="String" visibile="true" id="_144639296976592">
+                <annotation>
+                    <name>javax.validation.constraints.Size</name>
+                </annotation>
+                <jpa:column name="frn_usuario"/>
+            </jpa:basic>
+            <jpa:basic name="frnClave" attribute-type="String" visibile="true" id="_144639296976593">
+                <annotation>
+                    <name>javax.validation.constraints.Size</name>
+                </annotation>
+                <jpa:column name="frn_clave"/>
+            </jpa:basic>
+            <jpa:basic name="frnEstado" attribute-type="Boolean" visibile="true" id="_144639296976594">
+                <jpa:column name="frn_estado"/>
+            </jpa:basic>
+            <jpa:basic name="indversion" attribute-type="Integer" visibile="true" id="_144639296976595">
+                <jpa:column name="indversion"/>
+            </jpa:basic>
+            <jpa:basic name="rolId" attribute-type="Integer" visibile="true" id="_144639296976596">
+                <jpa:column name="rol_id"/>
+            </jpa:basic>
+            <jpa:one-to-many name="sysSubmodxfrnList" target-entity="SysSubmodxfrn" mapped-by="frnId" collection-type="java.util.List" connected-entity-id="_1446392969945147" connected-attribute-id="_1446392969945150" visibile="true" id="_144639296976597"/>
+            <jpa:one-to-many name="sysDetallefnrList" target-entity="SysDetallefnr" mapped-by="frnId" collection-type="java.util.List" connected-entity-id="_144639296973874" connected-attribute-id="_144639296973986" visibile="true" id="_144639296976698"/>
+            <jpa:one-to-many name="sysRolxfrnList" target-entity="SysRolxfrn" mapped-by="frnId" collection-type="java.util.List" connected-entity-id="_1446392969892129" connected-attribute-id="_1446392969893134" visibile="true" id="_144639296976699"/>
+        </jpa:attributes>
+        <jpa:named-query name="SysFuncionario.findAll">
+            <jpa:query>SELECT s FROM SysFuncionario s</jpa:query>
+        </jpa:named-query>
+        <jpa:named-query name="SysFuncionario.findByFrnId">
+            <jpa:query>SELECT s FROM SysFuncionario s WHERE s.frnId = :frnId</jpa:query>
+        </jpa:named-query>
+        <jpa:named-query name="SysFuncionario.findByFrnNombre">
+            <jpa:query>SELECT s FROM SysFuncionario s WHERE s.frnNombre = :frnNombre</jpa:query>
+        </jpa:named-query>
+        <jpa:named-query name="SysFuncionario.findByFrnApellido">
+            <jpa:query>SELECT s FROM SysFuncionario s WHERE s.frnApellido = :frnApellido</jpa:query>
+        </jpa:named-query>
+        <jpa:named-query name="SysFuncionario.findByFrnUsuario">
+            <jpa:query>SELECT s FROM SysFuncionario s WHERE s.frnUsuario = :frnUsuario</jpa:query>
+        </jpa:named-query>
+        <jpa:named-query name="SysFuncionario.findByFrnClave">
+            <jpa:query>SELECT s FROM SysFuncionario s WHERE s.frnClave = :frnClave</jpa:query>
+        </jpa:named-query>
+        <jpa:named-query name="SysFuncionario.findByFrnEstado">
+            <jpa:query>SELECT s FROM SysFuncionario s WHERE s.frnEstado = :frnEstado</jpa:query>
+        </jpa:named-query>
+        <jpa:named-query name="SysFuncionario.findByIndversion">
+            <jpa:query>SELECT s FROM SysFuncionario s WHERE s.indversion = :indversion</jpa:query>
+        </jpa:named-query>
+        <jpa:named-query name="SysFuncionario.findByRolId">
+            <jpa:query>SELECT s FROM SysFuncionario s WHERE s.rolId = :rolId</jpa:query>
+        </jpa:named-query>
+        <jpa:named-query name="SysFuncionario.validarUsr">
+            <jpa:query>SELECT u FROM SysFuncionario u WHERE u.frnUsuario = :frnUsuario AND u.frnClave = :frnClave </jpa:query>
+        </jpa:named-query>
+        <jpa:table name="sys_funcionario"/>
+    </jpa:entity>
+    <jpa:entity jaxb-root-element="false" compositePrimaryKeyType="NONE" static-metamodel="false" abstract="false" class="SysMediopago" visibile="true" minimized="false" id="_1446392969791100">
+        <annotation>@javax.xml.bind.annotation.XmlRootElement</annotation>
+        <jpa:attributes>
+            <jpa:id name="mdpId" attribute-type="Integer" visibile="true" id="_1446392969791101">
+                <annotation>
+                    <name>javax.validation.constraints.NotNull</name>
+                </annotation>
+                <jpa:column name="mdp_id"/>
+                <jpa:sequence-generator name="mdp_id"/>
+            </jpa:id>
+            <jpa:basic name="mdpNombre" attribute-type="String" visibile="true" id="_1446392969791102">
+                <annotation>
+                    <name>javax.validation.constraints.Size</name>
+                </annotation>
+                <jpa:column name="mdp_nombre"/>
+            </jpa:basic>
+            <jpa:basic name="mdpDesc" attribute-type="String" visibile="true" id="_1446392969791103">
+                <annotation>
+                    <name>javax.validation.constraints.Size</name>
+                </annotation>
+                <jpa:column name="mdp_desc"/>
+            </jpa:basic>
+            <jpa:basic name="mdpEst" attribute-type="Boolean" visibile="true" id="_1446392969792104">
+                <jpa:column name="mdp_est"/>
+            </jpa:basic>
+            <jpa:one-to-many name="sysDetallefnrList" target-entity="SysDetallefnr" mapped-by="mdpId" collection-type="java.util.List" connected-entity-id="_144639296973874" connected-attribute-id="_144639296973987" visibile="true" id="_1446392969792105"/>
+        </jpa:attributes>
+        <jpa:named-query name="SysMediopago.findAll">
+            <jpa:query>SELECT s FROM SysMediopago s</jpa:query>
+        </jpa:named-query>
+        <jpa:named-query name="SysMediopago.findByMdpId">
+            <jpa:query>SELECT s FROM SysMediopago s WHERE s.mdpId = :mdpId</jpa:query>
+        </jpa:named-query>
+        <jpa:named-query name="SysMediopago.findByMdpNombre">
+            <jpa:query>SELECT s FROM SysMediopago s WHERE s.mdpNombre = :mdpNombre</jpa:query>
+        </jpa:named-query>
+        <jpa:named-query name="SysMediopago.findByMdpDesc">
+            <jpa:query>SELECT s FROM SysMediopago s WHERE s.mdpDesc = :mdpDesc</jpa:query>
+        </jpa:named-query>
+        <jpa:named-query name="SysMediopago.findByMdpEst">
+            <jpa:query>SELECT s FROM SysMediopago s WHERE s.mdpEst = :mdpEst</jpa:query>
+        </jpa:named-query>
+        <jpa:table name="sys_mediopago"/>
+    </jpa:entity>
+    <jpa:entity jaxb-root-element="false" compositePrimaryKeyType="NONE" static-metamodel="false" abstract="false" class="SysMenuprin" visibile="true" minimized="false" id="_1446392969817106">
+        <annotation>@javax.xml.bind.annotation.XmlRootElement</annotation>
+        <jpa:attributes>
+            <jpa:id name="menId" attribute-type="Integer" visibile="true" id="_1446392969817107">
+                <annotation>
+                    <name>javax.validation.constraints.NotNull</name>
+                </annotation>
+                <jpa:column name="men_id"/>
+                <jpa:sequence-generator name="men_id"/>
+            </jpa:id>
+            <jpa:basic name="menNombre" attribute-type="String" visibile="true" id="_1446392969817108">
+                <annotation>
+                    <name>javax.validation.constraints.Size</name>
+                </annotation>
+                <jpa:column name="men_nombre"/>
+            </jpa:basic>
+            <jpa:basic name="menDesc" attribute-type="String" visibile="true" id="_1446392969817109">
+                <annotation>
+                    <name>javax.validation.constraints.Size</name>
+                </annotation>
+                <jpa:column name="men_desc"/>
+            </jpa:basic>
+            <jpa:basic name="menEst" attribute-type="Boolean" visibile="true" id="_1446392969817110">
+                <jpa:column name="men_est"/>
+            </jpa:basic>
+            <jpa:basic name="indversion" attribute-type="Integer" visibile="true" id="_1446392969817111">
+                <jpa:column name="indversion"/>
+            </jpa:basic>
+            <jpa:basic name="menOrden" attribute-type="Integer" visibile="true" id="_1446392969817112">
+                <jpa:column name="men_orden"/>
+            </jpa:basic>
+            <jpa:one-to-many name="sysModulosList" target-entity="SysModulos" mapped-by="menId" collection-type="java.util.List" connected-entity-id="_1446392969843114" connected-attribute-id="_1446392969843120" visibile="true" id="_1446392969817113"/>
+        </jpa:attributes>
+        <jpa:named-query name="SysMenuprin.findAll">
+            <jpa:query>SELECT s FROM SysMenuprin s</jpa:query>
+        </jpa:named-query>
+        <jpa:named-query name="SysMenuprin.findByMenId">
+            <jpa:query>SELECT s FROM SysMenuprin s WHERE s.menId = :menId</jpa:query>
+        </jpa:named-query>
+        <jpa:named-query name="SysMenuprin.findByMenNombre">
+            <jpa:query>SELECT s FROM SysMenuprin s WHERE s.menNombre = :menNombre</jpa:query>
+        </jpa:named-query>
+        <jpa:named-query name="SysMenuprin.findByMenDesc">
+            <jpa:query>SELECT s FROM SysMenuprin s WHERE s.menDesc = :menDesc</jpa:query>
+        </jpa:named-query>
+        <jpa:named-query name="SysMenuprin.findByMenEst">
+            <jpa:query>SELECT s FROM SysMenuprin s WHERE s.menEst = :menEst</jpa:query>
+        </jpa:named-query>
+        <jpa:named-query name="SysMenuprin.findByIndversion">
+            <jpa:query>SELECT s FROM SysMenuprin s WHERE s.indversion = :indversion</jpa:query>
+        </jpa:named-query>
+        <jpa:named-query name="SysMenuprin.findByMenOrden">
+            <jpa:query>SELECT s FROM SysMenuprin s WHERE s.menOrden = :menOrden</jpa:query>
+        </jpa:named-query>
+        <jpa:table name="sys_menuprin"/>
+    </jpa:entity>
+    <jpa:entity jaxb-root-element="false" compositePrimaryKeyType="NONE" static-metamodel="false" abstract="false" class="SysModulos" visibile="true" minimized="false" id="_1446392969843114">
+        <annotation>@javax.xml.bind.annotation.XmlRootElement</annotation>
+        <jpa:attributes>
+            <jpa:id name="procId" attribute-type="Integer" visibile="true" id="_1446392969843115">
+                <annotation>
+                    <name>javax.validation.constraints.NotNull</name>
+                </annotation>
+                <jpa:column name="proc_id"/>
+                <jpa:sequence-generator name="proc_id"/>
+            </jpa:id>
+            <jpa:basic name="procNombre" attribute-type="String" visibile="true" id="_1446392969843116">
+                <annotation>
+                    <name>javax.validation.constraints.Size</name>
+                </annotation>
+                <jpa:column name="proc_nombre"/>
+            </jpa:basic>
+            <jpa:basic name="procDesc" attribute-type="String" visibile="true" id="_1446392969843117">
+                <annotation>
+                    <name>javax.validation.constraints.Size</name>
+                </annotation>
+                <jpa:column name="proc_desc"/>
+            </jpa:basic>
+            <jpa:basic name="procEstado" attribute-type="Boolean" visibile="true" id="_1446392969843118">
+                <jpa:column name="proc_estado"/>
+            </jpa:basic>
+            <jpa:basic name="indversion" attribute-type="Integer" visibile="true" id="_1446392969843119">
+                <jpa:column name="indversion"/>
+            </jpa:basic>
+            <jpa:many-to-one name="menId" target-entity="SysMenuprin" primaryKey="false" connected-entity-id="_1446392969817106" connected-attribute-id="_1446392969817113" visibile="true" id="_1446392969843120">
+                <jpa:join-column name="men_id" referenced-column-name="men_id"/>
+            </jpa:many-to-one>
+            <jpa:one-to-many name="sysSubmoduloList" target-entity="SysSubmodulo" mapped-by="procId" collection-type="java.util.List" connected-entity-id="_1446392969923136" connected-attribute-id="_1446392969923144" visibile="true" id="_1446392969843121"/>
+        </jpa:attributes>
+        <jpa:named-query name="SysModulos.findAll">
+            <jpa:query>SELECT s FROM SysModulos s</jpa:query>
+        </jpa:named-query>
+        <jpa:named-query name="SysModulos.findByProcId">
+            <jpa:query>SELECT s FROM SysModulos s WHERE s.procId = :procId</jpa:query>
+        </jpa:named-query>
+        <jpa:named-query name="SysModulos.findByProcNombre">
+            <jpa:query>SELECT s FROM SysModulos s WHERE s.procNombre = :procNombre</jpa:query>
+        </jpa:named-query>
+        <jpa:named-query name="SysModulos.findByProcDesc">
+            <jpa:query>SELECT s FROM SysModulos s WHERE s.procDesc = :procDesc</jpa:query>
+        </jpa:named-query>
+        <jpa:named-query name="SysModulos.findByProcEstado">
+            <jpa:query>SELECT s FROM SysModulos s WHERE s.procEstado = :procEstado</jpa:query>
+        </jpa:named-query>
+        <jpa:named-query name="SysModulos.findByIndversion">
+            <jpa:query>SELECT s FROM SysModulos s WHERE s.indversion = :indversion</jpa:query>
+        </jpa:named-query>
+        <jpa:table name="sys_modulos"/>
+    </jpa:entity>
+    <jpa:entity jaxb-root-element="false" compositePrimaryKeyType="NONE" static-metamodel="false" abstract="false" class="SysRol" visibile="true" minimized="false" id="_1446392969867122">
+        <annotation>@javax.xml.bind.annotation.XmlRootElement</annotation>
+        <jpa:attributes>
+            <jpa:id name="rolId" attribute-type="Integer" visibile="true" id="_1446392969867123">
+                <annotation>
+                    <name>javax.validation.constraints.NotNull</name>
+                </annotation>
+                <jpa:column name="rol_id"/>
+                <jpa:sequence-generator name="rol_id"/>
+            </jpa:id>
+            <jpa:basic name="rolNombre" attribute-type="String" visibile="true" id="_1446392969867124">
+                <annotation>
+                    <name>javax.validation.constraints.Size</name>
+                </annotation>
+                <jpa:column name="rol_nombre"/>
+            </jpa:basic>
+            <jpa:basic name="rolDesc" attribute-type="String" visibile="true" id="_1446392969867125">
+                <annotation>
+                    <name>javax.validation.constraints.Size</name>
+                </annotation>
+                <jpa:column name="rol_desc"/>
+            </jpa:basic>
+            <jpa:basic name="rolEstado" attribute-type="Boolean" visibile="true" id="_1446392969867126">
+                <jpa:column name="rol_estado"/>
+            </jpa:basic>
+            <jpa:one-to-many name="sysSubmodxrolList" target-entity="SysSubmodxrol" mapped-by="rolId" collection-type="java.util.List" connected-entity-id="_1446392969968152" connected-attribute-id="_1446392969968155" visibile="true" id="_1446392969867127"/>
+            <jpa:one-to-many name="sysRolxfrnList" target-entity="SysRolxfrn" mapped-by="rolId" collection-type="java.util.List" connected-entity-id="_1446392969892129" connected-attribute-id="_1446392969893135" visibile="true" id="_1446392969867128"/>
+        </jpa:attributes>
+        <jpa:named-query name="SysRol.findAll">
+            <jpa:query>SELECT s FROM SysRol s</jpa:query>
+        </jpa:named-query>
+        <jpa:named-query name="SysRol.findByRolId">
+            <jpa:query>SELECT s FROM SysRol s WHERE s.rolId = :rolId</jpa:query>
+        </jpa:named-query>
+        <jpa:named-query name="SysRol.findByRolNombre">
+            <jpa:query>SELECT s FROM SysRol s WHERE s.rolNombre = :rolNombre</jpa:query>
+        </jpa:named-query>
+        <jpa:named-query name="SysRol.findByRolDesc">
+            <jpa:query>SELECT s FROM SysRol s WHERE s.rolDesc = :rolDesc</jpa:query>
+        </jpa:named-query>
+        <jpa:named-query name="SysRol.findByRolEstado">
+            <jpa:query>SELECT s FROM SysRol s WHERE s.rolEstado = :rolEstado</jpa:query>
+        </jpa:named-query>
+        <jpa:table name="sys_rol"/>
+    </jpa:entity>
+    <jpa:entity jaxb-root-element="false" compositePrimaryKeyType="NONE" static-metamodel="false" abstract="false" class="SysRolxfrn" visibile="true" minimized="false" id="_1446392969892129">
+        <annotation>@javax.xml.bind.annotation.XmlRootElement</annotation>
+        <jpa:attributes>
+            <jpa:id name="rlfrId" attribute-type="Integer" visibile="true" id="_1446392969892130">
+                <jpa:column name="rlfr_id"/>
+                <jpa:generated-value strategy="IDENTITY"/>
+                <jpa:sequence-generator name="rlfr_id"/>
+            </jpa:id>
+            <jpa:basic name="rlfrEstado" attribute-type="Boolean" visibile="true" id="_1446392969893131">
+                <jpa:column name="rlfr_estado"/>
+            </jpa:basic>
+            <jpa:many-to-one name="frnId" target-entity="SysFuncionario" primaryKey="false" connected-entity-id="_144639296976588" connected-attribute-id="_144639296976699" visibile="true" id="_1446392969893134">
+                <jpa:join-column name="frn_id" referenced-column-name="frn_id"/>
+            </jpa:many-to-one>
+            <jpa:many-to-one name="rolId" target-entity="SysRol" primaryKey="false" connected-entity-id="_1446392969867122" connected-attribute-id="_1446392969867128" visibile="true" id="_1446392969893135">
+                <jpa:join-column name="rol_id" referenced-column-name="rol_id"/>
+            </jpa:many-to-one>
+            <jpa:one-to-many name="vntFacturaList" target-entity="VntFactura" mapped-by="rlfrId" collection-type="java.util.List" connected-entity-id="_1446392970034174" connected-attribute-id="_1446392970035185" visibile="true" id="_1446392969893132"/>
+            <jpa:one-to-many name="prdEstampaList" target-entity="PrdEstampa" mapped-by="rlfrId" collection-type="java.util.List" connected-entity-id="_144639296949414" connected-attribute-id="_144639296949623" visibile="true" id="_1446392969893133"/>
+        </jpa:attributes>
+        <jpa:named-query name="SysRolxfrn.findAll">
+            <jpa:query>SELECT s FROM SysRolxfrn s</jpa:query>
+        </jpa:named-query>
+        <jpa:named-query name="SysRolxfrn.findByRlfrId">
+            <jpa:query>SELECT s FROM SysRolxfrn s WHERE s.rlfrId = :rlfrId</jpa:query>
+        </jpa:named-query>
+        <jpa:named-query name="SysRolxfrn.findByRlfrEstado">
+            <jpa:query>SELECT s FROM SysRolxfrn s WHERE s.rlfrEstado = :rlfrEstado</jpa:query>
+        </jpa:named-query>
+        <jpa:table name="sys_rolxfrn"/>
+    </jpa:entity>
+    <jpa:entity jaxb-root-element="false" compositePrimaryKeyType="NONE" static-metamodel="false" abstract="false" class="SysSubmodulo" visibile="true" minimized="false" id="_1446392969923136">
+        <annotation>@javax.xml.bind.annotation.XmlRootElement</annotation>
+        <jpa:attributes>
+            <jpa:id name="subId" attribute-type="Integer" visibile="true" id="_1446392969923137">
+                <annotation>
+                    <name>javax.validation.constraints.NotNull</name>
+                </annotation>
+                <jpa:column name="sub_id"/>
+                <jpa:sequence-generator name="sub_id"/>
+            </jpa:id>
+            <jpa:basic name="subNombre" attribute-type="String" visibile="true" id="_1446392969923138">
+                <annotation>
+                    <name>javax.validation.constraints.Size</name>
+                </annotation>
+                <jpa:column name="sub_nombre"/>
+            </jpa:basic>
+            <jpa:basic name="subDesc" attribute-type="String" visibile="true" id="_1446392969923139">
+                <annotation>
+                    <name>javax.validation.constraints.Size</name>
+                </annotation>
+                <jpa:column name="sub_desc"/>
+            </jpa:basic>
+            <jpa:basic name="subReglanav" attribute-type="String" visibile="true" id="_1446392969923140">
+                <annotation>
+                    <name>javax.validation.constraints.Size</name>
+                </annotation>
+                <jpa:column name="sub_reglanav"/>
+            </jpa:basic>
+            <jpa:basic name="subJsfbean" attribute-type="String" visibile="true" id="_1446392969923141">
+                <annotation>
+                    <name>javax.validation.constraints.Size</name>
+                </annotation>
+                <jpa:column name="sub_jsfbean"/>
+            </jpa:basic>
+            <jpa:basic name="subEst" attribute-type="Boolean" visibile="true" id="_1446392969923142">
+                <jpa:column name="sub_est"/>
+            </jpa:basic>
+            <jpa:basic name="indversion" attribute-type="Integer" visibile="true" id="_1446392969923143">
+                <jpa:column name="indversion"/>
+            </jpa:basic>
+            <jpa:many-to-one name="procId" target-entity="SysModulos" primaryKey="false" connected-entity-id="_1446392969843114" connected-attribute-id="_1446392969843121" visibile="true" id="_1446392969923144">
+                <jpa:join-column name="proc_id" referenced-column-name="proc_id"/>
+            </jpa:many-to-one>
+            <jpa:one-to-many name="sysSubmodxfrnList" target-entity="SysSubmodxfrn" mapped-by="subId" collection-type="java.util.List" connected-entity-id="_1446392969945147" connected-attribute-id="_1446392969945151" visibile="true" id="_1446392969923145"/>
+            <jpa:one-to-many name="sysSubmodxrolList" target-entity="SysSubmodxrol" mapped-by="subId" collection-type="java.util.List" connected-entity-id="_1446392969968152" connected-attribute-id="_1446392969968156" visibile="true" id="_1446392969923146"/>
+        </jpa:attributes>
+        <jpa:named-query name="SysSubmodulo.findAll">
+            <jpa:query>SELECT s FROM SysSubmodulo s</jpa:query>
+        </jpa:named-query>
+        <jpa:named-query name="SysSubmodulo.findBySubId">
+            <jpa:query>SELECT s FROM SysSubmodulo s WHERE s.subId = :subId</jpa:query>
+        </jpa:named-query>
+        <jpa:named-query name="SysSubmodulo.findBySubNombre">
+            <jpa:query>SELECT s FROM SysSubmodulo s WHERE s.subNombre = :subNombre</jpa:query>
+        </jpa:named-query>
+        <jpa:named-query name="SysSubmodulo.findBySubDesc">
+            <jpa:query>SELECT s FROM SysSubmodulo s WHERE s.subDesc = :subDesc</jpa:query>
+        </jpa:named-query>
+        <jpa:named-query name="SysSubmodulo.findBySubReglanav">
+            <jpa:query>SELECT s FROM SysSubmodulo s WHERE s.subReglanav = :subReglanav</jpa:query>
+        </jpa:named-query>
+        <jpa:named-query name="SysSubmodulo.findBySubJsfbean">
+            <jpa:query>SELECT s FROM SysSubmodulo s WHERE s.subJsfbean = :subJsfbean</jpa:query>
+        </jpa:named-query>
+        <jpa:named-query name="SysSubmodulo.findBySubEst">
+            <jpa:query>SELECT s FROM SysSubmodulo s WHERE s.subEst = :subEst</jpa:query>
+        </jpa:named-query>
+        <jpa:named-query name="SysSubmodulo.findByIndversion">
+            <jpa:query>SELECT s FROM SysSubmodulo s WHERE s.indversion = :indversion</jpa:query>
+        </jpa:named-query>
+        <jpa:table name="sys_submodulo"/>
+    </jpa:entity>
+    <jpa:entity jaxb-root-element="false" compositePrimaryKeyType="NONE" static-metamodel="false" abstract="false" class="SysSubmodxfrn" visibile="true" minimized="false" id="_1446392969945147">
+        <annotation>@javax.xml.bind.annotation.XmlRootElement</annotation>
+        <jpa:attributes>
+            <jpa:id name="sbfrId" attribute-type="Integer" visibile="true" id="_1446392969945148">
+                <annotation>
+                    <name>javax.validation.constraints.NotNull</name>
+                </annotation>
+                <jpa:column name="sbfr_id"/>
+                <jpa:sequence-generator name="sbfr_id"/>
+            </jpa:id>
+            <jpa:basic name="sbfrEstado" attribute-type="Boolean" visibile="true" id="_1446392969945149">
+                <jpa:column name="sbfr_estado"/>
+            </jpa:basic>
+            <jpa:many-to-one name="frnId" target-entity="SysFuncionario" primaryKey="false" connected-entity-id="_144639296976588" connected-attribute-id="_144639296976597" visibile="true" id="_1446392969945150">
+                <jpa:join-column name="frn_id" referenced-column-name="frn_id"/>
+            </jpa:many-to-one>
+            <jpa:many-to-one name="subId" target-entity="SysSubmodulo" primaryKey="false" connected-entity-id="_1446392969923136" connected-attribute-id="_1446392969923145" visibile="true" id="_1446392969945151">
+                <jpa:join-column name="sub_id" referenced-column-name="sub_id"/>
+            </jpa:many-to-one>
+        </jpa:attributes>
+        <jpa:named-query name="SysSubmodxfrn.findAll">
+            <jpa:query>SELECT s FROM SysSubmodxfrn s</jpa:query>
+        </jpa:named-query>
+        <jpa:named-query name="SysSubmodxfrn.findBySbfrId">
+            <jpa:query>SELECT s FROM SysSubmodxfrn s WHERE s.sbfrId = :sbfrId</jpa:query>
+        </jpa:named-query>
+        <jpa:named-query name="SysSubmodxfrn.findBySbfrEstado">
+            <jpa:query>SELECT s FROM SysSubmodxfrn s WHERE s.sbfrEstado = :sbfrEstado</jpa:query>
+        </jpa:named-query>
+        <jpa:table name="sys_submodxfrn"/>
+    </jpa:entity>
+    <jpa:entity jaxb-root-element="false" compositePrimaryKeyType="NONE" static-metamodel="false" abstract="false" class="SysSubmodxrol" visibile="true" minimized="false" id="_1446392969968152">
+        <annotation>@javax.xml.bind.annotation.XmlRootElement</annotation>
+        <jpa:attributes>
+            <jpa:id name="sbrlId" attribute-type="Integer" visibile="true" id="_1446392969968153">
+                <annotation>
+                    <name>javax.validation.constraints.NotNull</name>
+                </annotation>
+                <jpa:column name="sbrl_id"/>
+                <jpa:sequence-generator name="sbrl_id"/>
+            </jpa:id>
+            <jpa:basic name="sbrlEstado" attribute-type="Boolean" visibile="true" id="_1446392969968154">
+                <jpa:column name="sbrl_estado"/>
+            </jpa:basic>
+            <jpa:many-to-one name="rolId" target-entity="SysRol" primaryKey="false" connected-entity-id="_1446392969867122" connected-attribute-id="_1446392969867127" visibile="true" id="_1446392969968155">
+                <jpa:join-column name="rol_id" referenced-column-name="rol_id"/>
+            </jpa:many-to-one>
+            <jpa:many-to-one name="subId" target-entity="SysSubmodulo" primaryKey="false" connected-entity-id="_1446392969923136" connected-attribute-id="_1446392969923146" visibile="true" id="_1446392969968156">
+                <jpa:join-column name="sub_id" referenced-column-name="sub_id"/>
+            </jpa:many-to-one>
+        </jpa:attributes>
+        <jpa:named-query name="SysSubmodxrol.findAll">
+            <jpa:query>SELECT s FROM SysSubmodxrol s</jpa:query>
+        </jpa:named-query>
+        <jpa:named-query name="SysSubmodxrol.findBySbrlId">
+            <jpa:query>SELECT s FROM SysSubmodxrol s WHERE s.sbrlId = :sbrlId</jpa:query>
+        </jpa:named-query>
+        <jpa:named-query name="SysSubmodxrol.findBySbrlEstado">
+            <jpa:query>SELECT s FROM SysSubmodxrol s WHERE s.sbrlEstado = :sbrlEstado</jpa:query>
+        </jpa:named-query>
+        <jpa:table name="sys_submodxrol"/>
+    </jpa:entity>
+    <jpa:entity jaxb-root-element="false" compositePrimaryKeyType="NONE" static-metamodel="false" abstract="false" class="VntDetfactura" visibile="true" minimized="false" id="_1446392969991157">
+        <annotation>@javax.xml.bind.annotation.XmlRootElement</annotation>
+        <jpa:attributes>
+            <jpa:id name="detfacId" attribute-type="Long" visibile="true" id="_1446392969991158">
+                <jpa:column name="detfac_id"/>
+                <jpa:generated-value strategy="IDENTITY"/>
+                <jpa:sequence-generator name="detfac_id"/>
+            </jpa:id>
+            <jpa:basic name="detfacValor" attribute-type="java.math.BigDecimal" visibile="true" id="_1446392969991159">
+                <jpa:column name="detfac_valor"/>
+            </jpa:basic>
+            <jpa:basic name="detfacTextadd" attribute-type="Boolean" visibile="true" id="_1446392969991160">
+                <jpa:column name="detfac_textadd"/>
+            </jpa:basic>
+            <jpa:basic name="detfacValrtxtadd" attribute-type="java.math.BigDecimal" visibile="true" id="_1446392969991161">
+                <jpa:column name="detfac_valrtxtadd"/>
+            </jpa:basic>
+            <jpa:basic name="indversion" attribute-type="Integer" visibile="true" id="_1446392969991162">
+                <jpa:column name="indversion"/>
+            </jpa:basic>
+            <jpa:basic name="detfacCantidad" attribute-type="Integer" visibile="true" id="_1446392969991163">
+                <jpa:column name="detfac_cantidad"/>
+            </jpa:basic>
+            <jpa:many-to-one name="camId" target-entity="PrdCamiseta" primaryKey="false" connected-entity-id="_14463929694444" connected-attribute-id="_14463929694539" visibile="true" id="_1446392969991164">
+                <jpa:join-column name="cam_id" referenced-column-name="cam_id"/>
+            </jpa:many-to-one>
+            <jpa:many-to-one name="facId" target-entity="VntFactura" primaryKey="false" connected-entity-id="_1446392970034174" connected-attribute-id="_1446392970035183" visibile="true" id="_1446392969991165">
+                <jpa:join-column name="fac_id" referenced-column-name="fac_id"/>
+            </jpa:many-to-one>
+            <jpa:one-to-many name="vntEstxvnList" target-entity="VntEstxvn" mapped-by="detfacId" collection-type="java.util.List" connected-entity-id="_1446392970013167" connected-attribute-id="_1446392970013173" visibile="true" id="_1446392969991166"/>
+        </jpa:attributes>
+        <jpa:named-query name="VntDetfactura.findAll">
+            <jpa:query>SELECT v FROM VntDetfactura v</jpa:query>
+        </jpa:named-query>
+        <jpa:named-query name="VntDetfactura.findByDetfacId">
+            <jpa:query>SELECT v FROM VntDetfactura v WHERE v.detfacId = :detfacId</jpa:query>
+        </jpa:named-query>
+        <jpa:named-query name="VntDetfactura.findByDetfacValor">
+            <jpa:query>SELECT v FROM VntDetfactura v WHERE v.detfacValor = :detfacValor</jpa:query>
+        </jpa:named-query>
+        <jpa:named-query name="VntDetfactura.findByDetfacTextadd">
+            <jpa:query>SELECT v FROM VntDetfactura v WHERE v.detfacTextadd = :detfacTextadd</jpa:query>
+        </jpa:named-query>
+        <jpa:named-query name="VntDetfactura.findByDetfacValrtxtadd">
+            <jpa:query>SELECT v FROM VntDetfactura v WHERE v.detfacValrtxtadd = :detfacValrtxtadd</jpa:query>
+        </jpa:named-query>
+        <jpa:named-query name="VntDetfactura.findByIndversion">
+            <jpa:query>SELECT v FROM VntDetfactura v WHERE v.indversion = :indversion</jpa:query>
+        </jpa:named-query>
+        <jpa:named-query name="VntDetfactura.findByDetfacCantidad">
+            <jpa:query>SELECT v FROM VntDetfactura v WHERE v.detfacCantidad = :detfacCantidad</jpa:query>
+        </jpa:named-query>
+        <jpa:table name="vnt_detfactura"/>
+    </jpa:entity>
+    <jpa:entity jaxb-root-element="false" compositePrimaryKeyType="NONE" static-metamodel="false" abstract="false" class="VntEstxvn" visibile="true" minimized="false" id="_1446392970013167">
+        <annotation>@javax.xml.bind.annotation.XmlRootElement</annotation>
+        <jpa:attributes>
+            <jpa:id name="exvId" attribute-type="Long" visibile="true" id="_1446392970013168">
+                <jpa:column name="exv_id"/>
+                <jpa:generated-value strategy="IDENTITY"/>
+                <jpa:sequence-generator name="exv_id"/>
+            </jpa:id>
+            <jpa:basic name="exvValor" attribute-type="java.math.BigDecimal" visibile="true" id="_1446392970013169">
+                <jpa:column name="exv_valor"/>
+            </jpa:basic>
+            <jpa:basic name="exvEst" attribute-type="Boolean" visibile="true" id="_1446392970013170">
+                <jpa:column name="exv_est"/>
+            </jpa:basic>
+            <jpa:basic name="indversion" attribute-type="Integer" visibile="true" id="_1446392970013171">
+                <jpa:column name="indversion"/>
+            </jpa:basic>
+            <jpa:many-to-one name="etmId" target-entity="PrdEstampa" primaryKey="false" connected-entity-id="_144639296949414" connected-attribute-id="_144639296949522" visibile="true" id="_1446392970013172">
+                <jpa:join-column name="etm_id" referenced-column-name="etm_id"/>
+            </jpa:many-to-one>
+            <jpa:many-to-one name="detfacId" target-entity="VntDetfactura" primaryKey="false" connected-entity-id="_1446392969991157" connected-attribute-id="_1446392969991166" visibile="true" id="_1446392970013173">
+                <jpa:join-column name="detfac_id" referenced-column-name="detfac_id"/>
+            </jpa:many-to-one>
+        </jpa:attributes>
+        <jpa:named-query name="VntEstxvn.findAll">
+            <jpa:query>SELECT v FROM VntEstxvn v</jpa:query>
+        </jpa:named-query>
+        <jpa:named-query name="VntEstxvn.findByExvId">
+            <jpa:query>SELECT v FROM VntEstxvn v WHERE v.exvId = :exvId</jpa:query>
+        </jpa:named-query>
+        <jpa:named-query name="VntEstxvn.findByExvValor">
+            <jpa:query>SELECT v FROM VntEstxvn v WHERE v.exvValor = :exvValor</jpa:query>
+        </jpa:named-query>
+        <jpa:named-query name="VntEstxvn.findByExvEst">
+            <jpa:query>SELECT v FROM VntEstxvn v WHERE v.exvEst = :exvEst</jpa:query>
+        </jpa:named-query>
+        <jpa:named-query name="VntEstxvn.findByIndversion">
+            <jpa:query>SELECT v FROM VntEstxvn v WHERE v.indversion = :indversion</jpa:query>
+        </jpa:named-query>
+        <jpa:table name="vnt_estxvn"/>
+    </jpa:entity>
+    <jpa:entity jaxb-root-element="false" compositePrimaryKeyType="NONE" static-metamodel="false" abstract="false" class="VntFactura" visibile="true" minimized="false" id="_1446392970034174">
+        <annotation>@javax.xml.bind.annotation.XmlRootElement</annotation>
+        <jpa:attributes>
+            <jpa:id name="facId" attribute-type="Long" visibile="true" id="_1446392970034175">
+                <jpa:column name="fac_id"/>
+                <jpa:generated-value strategy="IDENTITY"/>
+                <jpa:sequence-generator name="fac_id"/>
+            </jpa:id>
+            <jpa:basic name="facFechacre" attribute-type="java.util.Date" visibile="true" id="_1446392970034176">
+                <jpa:column name="fac_fechacre"/>
+                <jpa:temporal>TIMESTAMP</jpa:temporal>
+            </jpa:basic>
+            <jpa:basic name="facValorneto" attribute-type="java.math.BigDecimal" visibile="true" id="_1446392970034177">
+                <jpa:column name="fac_valorneto"/>
+            </jpa:basic>
+            <jpa:basic name="facImpuesto" attribute-type="java.math.BigDecimal" visibile="true" id="_1446392970034178">
+                <jpa:column name="fac_impuesto"/>
+            </jpa:basic>
+            <jpa:basic name="facValortotal" attribute-type="java.math.BigDecimal" visibile="true" id="_1446392970034179">
+                <jpa:column name="fac_valortotal"/>
+            </jpa:basic>
+            <jpa:basic name="facPorcimp" attribute-type="java.math.BigDecimal" visibile="true" id="_1446392970034180">
+                <jpa:column name="fac_porcimp"/>
+            </jpa:basic>
+            <jpa:basic name="facPrefactura" attribute-type="Boolean" visibile="true" id="_1446392970034181">
+                <jpa:column name="fac_prefactura"/>
+            </jpa:basic>
+            <jpa:basic name="indversion" attribute-type="Integer" visibile="true" id="_1446392970035182">
+                <jpa:column name="indversion"/>
+            </jpa:basic>
+            <jpa:many-to-one name="rlfrId" target-entity="SysRolxfrn" primaryKey="false" connected-entity-id="_1446392969892129" connected-attribute-id="_1446392969893132" visibile="true" id="_1446392970035185">
+                <jpa:join-column name="rlfr_id" referenced-column-name="rlfr_id"/>
+            </jpa:many-to-one>
+            <jpa:one-to-many name="vntDetfacturaList" target-entity="VntDetfactura" mapped-by="facId" collection-type="java.util.List" connected-entity-id="_1446392969991157" connected-attribute-id="_1446392969991165" visibile="true" id="_1446392970035183"/>
+            <jpa:one-to-many name="vntMdpxfactList" target-entity="VntMdpxfact" mapped-by="facId" collection-type="java.util.List" connected-entity-id="_1446392970055186" connected-attribute-id="_1446392970055192" visibile="true" id="_1446392970035184"/>
+        </jpa:attributes>
+        <jpa:named-query name="VntFactura.findAll">
+            <jpa:query>SELECT v FROM VntFactura v</jpa:query>
+        </jpa:named-query>
+        <jpa:named-query name="VntFactura.findByFacId">
+            <jpa:query>SELECT v FROM VntFactura v WHERE v.facId = :facId</jpa:query>
+        </jpa:named-query>
+        <jpa:named-query name="VntFactura.findByFacFechacre">
+            <jpa:query>SELECT v FROM VntFactura v WHERE v.facFechacre = :facFechacre</jpa:query>
+        </jpa:named-query>
+        <jpa:named-query name="VntFactura.findByFacValorneto">
+            <jpa:query>SELECT v FROM VntFactura v WHERE v.facValorneto = :facValorneto</jpa:query>
+        </jpa:named-query>
+        <jpa:named-query name="VntFactura.findByFacImpuesto">
+            <jpa:query>SELECT v FROM VntFactura v WHERE v.facImpuesto = :facImpuesto</jpa:query>
+        </jpa:named-query>
+        <jpa:named-query name="VntFactura.findByFacValortotal">
+            <jpa:query>SELECT v FROM VntFactura v WHERE v.facValortotal = :facValortotal</jpa:query>
+        </jpa:named-query>
+        <jpa:named-query name="VntFactura.findByFacPorcimp">
+            <jpa:query>SELECT v FROM VntFactura v WHERE v.facPorcimp = :facPorcimp</jpa:query>
+        </jpa:named-query>
+        <jpa:named-query name="VntFactura.findByFacPrefactura">
+            <jpa:query>SELECT v FROM VntFactura v WHERE v.facPrefactura = :facPrefactura</jpa:query>
+        </jpa:named-query>
+        <jpa:named-query name="VntFactura.findByIndversion">
+            <jpa:query>SELECT v FROM VntFactura v WHERE v.indversion = :indversion</jpa:query>
+        </jpa:named-query>
+        <jpa:table name="vnt_factura"/>
+    </jpa:entity>
+    <jpa:entity jaxb-root-element="false" compositePrimaryKeyType="NONE" static-metamodel="false" abstract="false" class="VntMdpxfact" visibile="true" minimized="false" id="_1446392970055186">
+        <annotation>@javax.xml.bind.annotation.XmlRootElement</annotation>
+        <jpa:attributes>
+            <jpa:id name="mdxfId" attribute-type="Long" visibile="true" id="_1446392970055187">
+                <jpa:column name="mdxf_id"/>
+                <jpa:generated-value strategy="IDENTITY"/>
+                <jpa:sequence-generator name="mdxf_id"/>
+            </jpa:id>
+            <jpa:basic name="mdxfValor" attribute-type="java.math.BigDecimal" visibile="true" id="_1446392970055188">
+                <jpa:column name="mdxf_valor"/>
+            </jpa:basic>
+            <jpa:basic name="mdxfEst" attribute-type="Boolean" visibile="true" id="_1446392970055189">
+                <jpa:column name="mdxf_est"/>
+            </jpa:basic>
+            <jpa:basic name="indversion" attribute-type="Integer" visibile="true" id="_1446392970055190">
+                <jpa:column name="indversion"/>
+            </jpa:basic>
+            <jpa:many-to-one name="detfId" target-entity="SysDetallefnr" primaryKey="false" connected-entity-id="_144639296973874" connected-attribute-id="_144639296973985" visibile="true" id="_1446392970055191">
+                <jpa:join-column name="detf_id" referenced-column-name="detf_id"/>
+            </jpa:many-to-one>
+            <jpa:many-to-one name="facId" target-entity="VntFactura" primaryKey="false" connected-entity-id="_1446392970034174" connected-attribute-id="_1446392970035184" visibile="true" id="_1446392970055192">
+                <jpa:join-column name="fac_id" referenced-column-name="fac_id"/>
+            </jpa:many-to-one>
+        </jpa:attributes>
+        <jpa:named-query name="VntMdpxfact.findAll">
+            <jpa:query>SELECT v FROM VntMdpxfact v</jpa:query>
+        </jpa:named-query>
+        <jpa:named-query name="VntMdpxfact.findByMdxfId">
+            <jpa:query>SELECT v FROM VntMdpxfact v WHERE v.mdxfId = :mdxfId</jpa:query>
+        </jpa:named-query>
+        <jpa:named-query name="VntMdpxfact.findByMdxfValor">
+            <jpa:query>SELECT v FROM VntMdpxfact v WHERE v.mdxfValor = :mdxfValor</jpa:query>
+        </jpa:named-query>
+        <jpa:named-query name="VntMdpxfact.findByMdxfEst">
+            <jpa:query>SELECT v FROM VntMdpxfact v WHERE v.mdxfEst = :mdxfEst</jpa:query>
+        </jpa:named-query>
+        <jpa:named-query name="VntMdpxfact.findByIndversion">
+            <jpa:query>SELECT v FROM VntMdpxfact v WHERE v.indversion = :indversion</jpa:query>
+        </jpa:named-query>
+        <jpa:table name="vnt_mdpxfact"/>
+    </jpa:entity>
+    <jpa:diagram id="_14463929693902">
+        <plane elementRef="_14463929693901" id="_14463929693943_p"/>
+    </jpa:diagram>
+</jpa:entity-mappings>

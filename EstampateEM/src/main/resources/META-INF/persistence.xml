@@ -2,7 +2,7 @@
 <persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
   <persistence-unit name="estampatePU" transaction-type="JTA">
     <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
-     <jta-data-source>jdbcEstampate</jta-data-source>
+    <jta-data-source>jdbcEstampate</jta-data-source>
     <class>com.unniminuto.lchacon.estampateem.modelo.VntFactura</class>
     <class>com.unniminuto.lchacon.estampateem.modelo.PrdCamiseta</class>
     <class>com.unniminuto.lchacon.estampateem.modelo.RefTalla</class>
@@ -22,6 +22,9 @@
     <class>com.unniminuto.lchacon.estampateem.modelo.VntDetfactura</class>
     <class>com.unniminuto.lchacon.estampateem.modelo.SysSubmodxfrn</class>
     <class>com.unniminuto.lchacon.estampateem.modelo.RefColor</class>
+    <class>com.unniminuto.lchacon.estampateem.modelo.SysDetallefnr</class>
+    <class>com.unniminuto.lchacon.estampateem.modelo.SysMediopago</class>
+    <class>com.unniminuto.lchacon.estampateem.modelo.VntMdpxfact</class>
     <shared-cache-mode>ENABLE_SELECTIVE</shared-cache-mode>
     <properties/>
   </persistence-unit>
