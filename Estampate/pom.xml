@@ -15,11 +15,7 @@
     </properties>
     
     <dependencies>
-        <dependency>
-            <groupId>com.unniminuto.lchacon</groupId>
-            <artifactId>EstampateEM</artifactId>
-            <version>1.0</version>
-        </dependency>
+   
         <dependency>
             <groupId>com.unniminuto.lchacon</groupId>
             <artifactId>EstampateEJB</artifactId>
