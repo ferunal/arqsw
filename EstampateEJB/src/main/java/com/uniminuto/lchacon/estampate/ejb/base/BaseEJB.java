@@ -13,15 +13,13 @@ import javax.persistence.PersistenceContext;
  *
  * @author fercris
  */
-
-
 public abstract class BaseEJB {
-    
+
     @PersistenceContext(unitName = "estampatePU")
     protected EntityManager emEst;
-    
-     @Remove
+
+    @Remove
     public void remove() {
     }
-    
+
 }
