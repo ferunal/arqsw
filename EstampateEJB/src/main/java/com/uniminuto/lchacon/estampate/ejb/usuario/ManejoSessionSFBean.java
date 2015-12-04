@@ -21,7 +21,7 @@ import javax.persistence.Query;
 @LocalBean
 public class ManejoSessionSFBean extends BaseEJB {
 
-   private SysFuncionario frnlogeado = new SysFuncionario();
+    private SysFuncionario frnlogeado = new SysFuncionario();
 
     public void validaringreso(SysFuncionario pSysFuncionario) {
 
@@ -35,8 +35,8 @@ public class ManejoSessionSFBean extends BaseEJB {
         } catch (NoResultException | NonUniqueResultException e) {
         }
     }
-    
-      public SysFuncionario getFrnlogeado() {
+
+    public SysFuncionario getFrnlogeado() {
         return frnlogeado;
     }
 

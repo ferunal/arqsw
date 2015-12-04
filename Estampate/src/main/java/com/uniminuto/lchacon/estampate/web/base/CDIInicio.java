@@ -24,6 +24,8 @@ import javax.naming.NamingException;
  * @author fercris
  */
 public class CDIInicio {
+
+    
     ManejoSessionSFBean manejoSessionSFBean = lookupManejoSessionSFBeanBean();
 
     public void postConstruct(@Observes @Initialized(ApplicationScoped.class) Object o) {
@@ -33,10 +35,16 @@ public class CDIInicio {
     private ManejoSessionSFBean lookupManejoSessionSFBeanBean() {
         try {
             Context c = new InitialContext();
-            return (ManejoSessionSFBean) c.lookup("java:global/com.uniminuto.lchacon_Estampate_war_1/ManejoSessionSFBean!com.uniminuto.lchacon.estampate.ejb.usuario.ManejoSessionSFBean");
+            return (ManejoSessionSFBean) c.lookup("java:global/EstampateEar-ear/EstampateEJB-1.0/ManejoSessionSFBean");
         } catch (NamingException ne) {
             Logger.getLogger(getClass().getName()).log(Level.SEVERE, "exception caught", ne);
             throw new RuntimeException(ne);
         }
     }
+
+  
+    
+    
+    
+    
 }

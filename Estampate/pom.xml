@@ -20,6 +20,13 @@
             <groupId>com.unniminuto.lchacon</groupId>
             <artifactId>EstampateEJB</artifactId>
             <version>1.0</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.unniminuto.lchacon</groupId>
+            <artifactId>EstampateEM</artifactId>
+            <version>1.0</version>
+            <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>javax</groupId>

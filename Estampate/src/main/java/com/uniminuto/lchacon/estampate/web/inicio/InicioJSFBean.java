@@ -37,7 +37,7 @@ public class InicioJSFBean extends BaseJSFBean implements Serializable {
     private ManejoSessionSFBean lookupManejoSessionSFBeanBean() {
         try {
             Context c = new InitialContext();
-            return (ManejoSessionSFBean) c.lookup("java:global/Estampate/ManejoSessionSFBean!com.uniminuto.lchacon.estampate.ejb.usuario.ManejoSessionSFBean");
+            return (ManejoSessionSFBean) c.lookup("java:global/EstampateEar-ear/EstampateEJB-1.0/ManejoSessionSFBean");
         } catch (NamingException ne) {
             Logger.getLogger(getClass().getName()).log(Level.SEVERE, "exception caught", ne);
             throw new RuntimeException(ne);

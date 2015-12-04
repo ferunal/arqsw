@@ -42,27 +42,28 @@ import org.icefaces.ace.model.MenuModel;
 @SessionScoped
 @Named
 public class PrincipalJSFBean extends BaseJSFBean implements Serializable {
-  private SysFuncionario sysfuncionario = new SysFuncionario();
 
-   private String clave;
+    private SysFuncionario sysfuncionario = new SysFuncionario();
+
+    private String clave;
     private ManejoSessionSFBean manejoSessionSFBean;
 
     private ManejoSessionSFBean lookupManejoSessionSFBeanBean() {
         try {
             Context c = new InitialContext();
-            return (ManejoSessionSFBean) c.lookup("java:global/Estampate/ManejoSessionSFBean!com.uniminuto.lchacon.estampate.ejb.usuario.ManejoSessionSFBean");
+            return (ManejoSessionSFBean) c.lookup("java:global/EstampateEar-ear/EstampateEJB-1.0/ManejoSessionSFBean");
         } catch (NamingException ne) {
             Logger.getLogger(getClass().getName()).log(Level.SEVERE, "exception caught", ne);
             throw new RuntimeException(ne);
         }
     }
-    
+
     private AdministracionSFBean administracionSFBean;
 
     private AdministracionSFBean lookupAdministracionSFBean() {
         try {
             Context c = new InitialContext();
-            return (AdministracionSFBean) c.lookup("java:global/Estampate/AdministracionSFBean!com.uniminuto.lchacon.estampate.ejb.admin.AdministracionSFBean");
+            return (AdministracionSFBean) c.lookup("java:global/EstampateEar-ear/EstampateEJB-1.0/AdministracionSFBean!com.uniminuto.lchacon.estampate.ejb.admin.AdministracionSFBean");
         } catch (NamingException ne) {
             Logger.getLogger(getClass().getName()).log(Level.SEVERE, "exception caught", ne);
             throw new RuntimeException(ne);
@@ -140,8 +141,8 @@ public class PrincipalJSFBean extends BaseJSFBean implements Serializable {
             }
         }
     }
-    
-     public void ingresar_ActionEvent(ActionEvent ae) {
+
+    public void ingresar_ActionEvent(ActionEvent ae) {
         manejoSessionSFBean = lookupManejoSessionSFBeanBean();
         sysfuncionario.setFrnClave(hashPasswordSha512(clave));
         manejoSessionSFBean.validaringreso(sysfuncionario);
@@ -150,7 +151,6 @@ public class PrincipalJSFBean extends BaseJSFBean implements Serializable {
             renderNavegacion = true;
             navegacion = "ingresar";
             cargarMenuNav();
-        
 
         } else {
             manejoSessionSFBean.remove();
@@ -161,12 +161,12 @@ public class PrincipalJSFBean extends BaseJSFBean implements Serializable {
             message.setSummary("Error");
             message.setSeverity(FacesMessage.SEVERITY_ERROR);
             FacesContext.getCurrentInstance().addMessage(null, message);
-          
+
         }
 
     }
-     
-      public String ingresar_Action() {
+
+    public String ingresar_Action() {
         return navegacion;
     }
 
@@ -195,7 +195,7 @@ public class PrincipalJSFBean extends BaseJSFBean implements Serializable {
             //context.execute("cerrarPagina();");
             //            cpjsfb.limpiarVariables();
             manejoSessionSFBean.
-            remove();
+                    remove();
             //apcsfbe.remove();
         } else {
             try {
@@ -226,7 +226,7 @@ public class PrincipalJSFBean extends BaseJSFBean implements Serializable {
         System.out.println(navegacion);
         return navegacion;
     }
-//<editor-fold defaultstate="collapsed" desc="Funciones base">
+    //<editor-fold defaultstate="collapsed" desc="Funciones base">
 
     @Override
     public void init() {
@@ -293,7 +293,8 @@ public class PrincipalJSFBean extends BaseJSFBean implements Serializable {
     public void setBeanDest(String beanDest) {
         this.beanDest = beanDest;
     }
-     public SysFuncionario getSysfuncionario() {
+
+    public SysFuncionario getSysfuncionario() {
         return sysfuncionario;
     }
 

@@ -7,10 +7,11 @@
     <version>1.0</version>
     <packaging>pom</packaging>
     <modules>
-        <module>Estampate</module>
+        <module>EstampateEar-ear</module>
+        <module>EstampateEJB</module>
         <module>EstampateEM</module>
-    <module>EstampateEJB</module>
-  </modules>
+        <module>Estampate</module>
+    </modules>
     <properties>      
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
